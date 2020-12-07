@@ -6,7 +6,8 @@ body {
     Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     line-height: 1.6;
     font-size: 18px;
-    background-color: rgba(255,192,31,0.3);
+    max-width: 100%;
+    background-color:rgba(245, 165, 0, 0.2)
 }
 
 * {
@@ -14,7 +15,7 @@ body {
 }
 
 a {
-    color: #0070f3;
+    color: #000000;
     text-decoration: none;
 }
 

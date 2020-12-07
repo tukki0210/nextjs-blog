@@ -11,6 +11,8 @@ declare const styles: {
   readonly "lightText": string;
   readonly "container": string;
   readonly "item": string;
+  readonly "title": string;
+  readonly "image": string;
 };
 export = styles;
 

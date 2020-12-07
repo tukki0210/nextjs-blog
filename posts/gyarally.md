@@ -1,6 +1,7 @@
 ---
 title: 'テストギャラリー'
 date: '2020-12-01'
+image: '/images/profile.JPG'
 ---
 
 プロフィール

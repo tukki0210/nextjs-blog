@@ -1,4 +1,5 @@
 import '../styles/global.css'
+import '../styles/normalize.css'
 import React from 'react'
 import {AppProps} from 'next/app'
 

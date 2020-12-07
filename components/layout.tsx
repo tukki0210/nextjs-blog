@@ -1,3 +1,4 @@
+import React, {FC} from 'react'
 import Head from 'next/head'
 import styles from './layout.module.css'
 import utilStyles from '../styles/utils.module.css'
@@ -7,7 +8,12 @@ import Link from 'next/link'
 const name = 'Tsukuda Naoki'
 export const siteTitle = "つくPHOTO"
 
-export default function Layout({ children, home }) {
+type Props = {
+    home?: any;
+}
+
+
+const Layout: React.FC<Props> = ({ children, home}) => {
     return (
         <div className={styles.container}>
             <Head>
@@ -65,3 +71,5 @@ export default function Layout({ children, home }) {
         </div>
     )
 }
+
+export default Layout;

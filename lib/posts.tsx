@@ -26,7 +26,9 @@ export function getSortedPostsData() {
             ...matterResult.data
         }
     })
+    // console.log(allPostsData)
     // Sort posts by date
+
     return allPostsData.sort((a,b) => {
         if (a.date < b.date) {
             return 1
@@ -72,6 +74,7 @@ export async function getPostData(id) {
     //use remark to convert markdown into HTML string
     const processedContent = await remark()
         .use(html)
+        
         .process(matterResult.content)
     const contentHtml = processedContent.toString()
 

@@ -1,3 +1,13 @@
+@import "tailwindcss/base";
+
+/* Write your own custom base styles here */
+
+/* Start purging... */
+@import "tailwindcss/components";
+
+
+@import "tailwindcss/utilities";
+
 html,
 body {
     padding: 0;
@@ -7,7 +17,7 @@ body {
     line-height: 1.6;
     font-size: 18px;
     max-width: 100%;
-    background-color:rgba(245, 165, 0, 0.2)
+    background-color:rgba(241, 240, 237, 0.4)
 }
 
 * {
@@ -27,3 +37,4 @@ img {
     max-width: 100%;
     display: block;
 }
+

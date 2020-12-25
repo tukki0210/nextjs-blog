@@ -21,6 +21,7 @@ export default function Post({ postData }) {
     )
 }
 
+
 export async function getStaticPaths() {
     // Return a list of possible value for id
     const paths = getAllPostIds()
@@ -29,6 +30,7 @@ export async function getStaticPaths() {
         fallback: false
     }
 }
+
 
 export async function getStaticProps({ params }){
     // Fetch necessary data for the blog post using params.id
@@ -39,3 +41,19 @@ export async function getStaticProps({ params }){
         }
     }
 }
+
+// //getStaticPropsで外部APIを叩くことができる
+// export async function getStaticProps(context) {
+//   const res = await fetch(`https://.../data`)
+//   const data = await res.json()
+
+//   if (!data) {
+//     return {
+//       notFound: true,
+//     }
+//   }
+
+//   return {
+//     props: {}, // will be passed to the page component as props
+//   }
+// }

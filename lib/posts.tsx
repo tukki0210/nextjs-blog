@@ -4,18 +4,18 @@ import matter from 'gray-matter'
 import remark from 'remark'
 import html from 'remark-html'
 
-const postsDirectory = path.join(process.cwd(),'posts')
+const postsDirectory = path.join(process.cwd(), 'posts')
 
 export function getSortedPostsData() {
     //Get file names under /posts
     const fileNames = fs.readdirSync(postsDirectory)
     const allPostsData = fileNames.map(fileName => {
         //remove ".md" from file name to get id
-        const id = fileName.replace(/\.md$/,'')
+        const id = fileName.replace(/\.md$/, '')
 
         // Read markdown file as string
         const fullPath = path.join(postsDirectory, fileName)
-        const fileContents = fs.readFileSync(fullPath,'utf8')
+        const fileContents = fs.readFileSync(fullPath, 'utf8')
 
         //Use gray-matter to parse the post metadata section
         const matterResult = matter(fileContents)
@@ -26,7 +26,7 @@ export function getSortedPostsData() {
             ...matterResult.data
         }
     })
-    // console.log(allPostsData)
+
     // Sort posts by date
 
     return allPostsData.sort((a,b) => {
@@ -36,9 +36,10 @@ export function getSortedPostsData() {
             return -1
         }
     })
+    // return allPostsData
 }
 
-export function getAllPostIds(){
+export function getAllPostIds() {
     const fileNames = fs.readdirSync(postsDirectory)
 
     //Returns an array that looks like this:
@@ -58,7 +59,7 @@ export function getAllPostIds(){
     return fileNames.map(fileName => {
         return {
             params: {
-                id: fileName.replace(/\.md$/,'')
+                id: fileName.replace(/\.md$/, '')
             }
         }
     })
@@ -66,7 +67,7 @@ export function getAllPostIds(){
 
 export async function getPostData(id) {
     const fullPath = path.join(postsDirectory, `${id}.md`)
-    const fileContents = fs.readFileSync(fullPath,'utf8')
+    const fileContents = fs.readFileSync(fullPath, 'utf8')
 
     //use gray-matter to parse the post metadata section
     const matterResult = matter(fileContents)
@@ -74,7 +75,7 @@ export async function getPostData(id) {
     //use remark to convert markdown into HTML string
     const processedContent = await remark()
         .use(html)
-        
+
         .process(matterResult.content)
     const contentHtml = processedContent.toString()
 

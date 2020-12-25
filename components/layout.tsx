@@ -1,4 +1,4 @@
-import React, {FC} from 'react'
+import React, {FC, ReactNode } from 'react'
 import Head from 'next/head'
 import styles from './layout.module.css'
 import utilStyles from '../styles/utils.module.css'
@@ -6,30 +6,20 @@ import Link from 'next/link'
 
 
 const name = 'Tsukuda Naoki'
-export const siteTitle = "つくPHOTO"
+export const siteTitle = "カメラとプログラミング"
 
 type Props = {
+    children?: ReactNode
     home?: any;
 }
 
 
-const Layout: React.FC<Props> = ({ children, home}) => {
+const Layout  = ({ children, home} : Props ) => {
     return (
             <div className={styles.container}>
             <Head>
-                <link rel="icon" href="/favicon.ico" />
-                <meta
-                    name="description"
-                    content="Learn how to build a personal website using Next.js"
-                />
-                <meta
-                    property="og:image"
-                    content={`https://og-image.now.sh/${encodeURI(
-                        siteTitle
-                    )}.png?theme=light&md=0&fontSize=75px&images=https%3A%2F%2Fassets.vercel.com%2Fimage%2Fupload%2Ffront%2Fassets%2Fdesign%2Fnextjs-black-logo.svg`}
-                />
-                <meta name="og:title" content={siteTitle} />
-                <meta name="twitter:card" content="summary_large_image" />
+                <meta charSet="utf-8" />
+                <meta name="viewport" content="initial-scale=1.0, width=device-width" /> 
             </Head>
             <header className={styles.header}>
                 {home ? (
@@ -39,7 +29,7 @@ const Layout: React.FC<Props> = ({ children, home}) => {
                             className={`${styles.headerHomeImage} ${utilStyles.borderCircle}`}
                             alt={name}
                         />
-                        <h1 className={utilStyles.heading2Xl}>{name}</h1>
+                        <h1 className={'text-black'}>{siteTitle}</h1>
                     </>
                 ) : (
                         <>

@@ -37,8 +37,6 @@ export function getSortedPostsData() {
         }
     })
 
-    console.log(allPostsData)
-
     // Sort posts by date
 
     return allPostsData.sort((a:date,b:date) => {

@@ -1,7 +1,5 @@
 import React, {FC, ReactNode } from 'react'
 import Head from 'next/head'
-import styles from './layout.module.css'
-import utilStyles from '../styles/utils.module.css'
 import Link from 'next/link'
 
 
@@ -16,17 +14,17 @@ type Props = {
 
 const Layout  = ({ children, home} : Props ) => {
     return (
-            <div className={styles.container}>
+            <div className={"container p-0 m-auto"}>
             <Head>
                 <meta charSet="utf-8" />
                 <meta name="viewport" content="initial-scale=1.0, width=device-width" /> 
             </Head>
-            <header className={styles.header}>
+            <header className={"flex flex-col items-center"}>
                 {home ? (
                     <>
                         <img
                             src="/images/profile.JPG"
-                            className={`${styles.headerHomeImage} ${utilStyles.borderCircle}`}
+                            className={"w-24 h-24 rounded-full"}
                             alt={name}
                         />
                         <h1 className={'text-black'}>{siteTitle}</h1>
@@ -37,14 +35,14 @@ const Layout  = ({ children, home} : Props ) => {
                                 <a>
                                     <img
                                         src="/images/profile.JPG"
-                                        className={`${styles.headerImage} ${utilStyles.borderCircle}`}
+                                        className={"w-24 h-24 rounded-full"}
                                         alt={name}
                                     />
                                 </a>
                             </Link>
-                            <h2 className={utilStyles.headingLg}>
+                            <h2 className={"text-2xl"}>
                                 <Link href="/">
-                                    <a className={utilStyles.colorInherit}>{name}</a>
+                                    <a>{name}</a>
                                 </Link>
                             </h2>
                         </>
@@ -52,7 +50,7 @@ const Layout  = ({ children, home} : Props ) => {
             </header>
             <main>{children}</main>
             {!home && (
-                <div className={styles.backToHome}>
+                <div className={"m-0"}>
                     <Link href="/">
                         <a> Back to home</a>
                     </Link>

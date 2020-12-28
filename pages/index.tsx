@@ -1,6 +1,5 @@
 import Head from 'next/head'
 import Layout, { siteTitle } from '../components/layout'
-// import * as utilStyles from '../styles/utils.module.css'
 import Link from 'next/link'
 import Date from '../components/date'
 import Image from 'next/image'
@@ -27,7 +26,7 @@ const Home = ({ allPostsData }) => {
                       height={'400'}
                       // layout={'responsive'}
                     />
-
+                  
                   
                   <div className={"flex items-center justify-between leading-tight p-2 md:p-4"}>
                     <p>{title}</p>

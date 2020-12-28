@@ -1,6 +1,7 @@
 import React, { FC, ReactNode } from 'react'
 import Head from 'next/head'
 import Link from 'next/link'
+import Image from 'next/image'
 
 
 const name = 'つっきー'
@@ -24,24 +25,10 @@ const Layout = ({ children, home }: Props) => {
             <header className={"flex flex-col items-center"}>
                 {home ? (
                     <>
-                        <img
-                            src="/images/tukki.jpg"
-                            className={"w-24 h-24 rounded-full"}
-                            alt={name}
-                        />
                         <h1 className={'text-gray-50 text-4xl font-sans .font-extrabold'}>{siteTitle}</h1>
                     </>
                 ) : (
                         <>
-                            <Link href="/">
-                                <a>
-                                    <img
-                                        src="/images/profile.JPG"
-                                        className={"w-24 h-24 rounded-full"}
-                                        alt={name}
-                                    />
-                                </a>
-                            </Link>
                             <h2 className={'text-gray-50 text-4xl font-sans .font-extrabold'}>
                                 <Link href="/">
                                     <a className={'text-gray-50 text-4xl font-sans .font-extrabold'}>{siteTitle}</a>
@@ -64,6 +51,13 @@ const Layout = ({ children, home }: Props) => {
                             <li>React</li>
                         </ul>
                     </ul>
+                    <div className={"rounded overflow-hidden shadow maz-w-xs my-3"}>
+                        <Image  className={"w-24 h-24 rounded-full"}
+                            src="/images/tukki.jpg" 
+                            height="300"
+                            width="300"
+                        />
+                    </div>
                 </aside>
             </div>
             {!home && (

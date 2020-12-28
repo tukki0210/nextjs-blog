@@ -7,7 +7,6 @@ import Post from '../pages/posts/[id]'
 
 const postsDirectory = path.join(process.cwd(), 'posts')
 
-
 interface PostData{
     id: string,
     title: string,
@@ -37,10 +36,9 @@ export function getSortedPostsData() {
         }
     })
 
-    // Sort posts by date
-    
+    // 日付でソートする。a.bは型定義しないとエラーがでる
 
-    const sortedAllPostsData=  allPostsData.sort((a:PostData,b:PostData) => {
+    const sortedAllPostsData = allPostsData.sort((a:PostData,b:PostData) => {
 
         if (a.date < b.date) {
             return 1 
@@ -53,20 +51,6 @@ export function getSortedPostsData() {
 
 export function getAllPostIds() {
     const fileNames = fs.readdirSync(postsDirectory)
-
-    //Returns an array that looks like this:
-    // [
-    //    {
-    //        params: {
-    //            id: "ssg-ssr"
-    //        }
-    //    },
-    //    {
-    //        params: {
-    //            id:"pre-rendering"
-    //        }
-    //    }
-    // ]
 
     return fileNames.map(fileName => {
         return {

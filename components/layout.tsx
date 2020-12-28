@@ -25,7 +25,7 @@ const Layout = ({ children, home }: Props) => {
                 {home ? (
                     <>
                         <img
-                            src="/images/profile.JPG"
+                            src="/images/tukki.jpg"
                             className={"w-24 h-24 rounded-full"}
                             alt={name}
                         />

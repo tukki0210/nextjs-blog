@@ -17,9 +17,12 @@
     "postcss": "^8.2.1",
     "react": "16.13.1",
     "react-dom": "16.13.1",
+    "react-typography": "^0.16.19",
     "remark": "^13.0.0",
     "remark-html": "^13.0.1",
-    "sass": "^1.29.0"
+    "sass": "^1.29.0",
+    "typography": "^0.16.19",
+    "typography-theme-github": "^0.16.19"
   },
   "devDependencies": {
     "@types/node": "^14.14.10",

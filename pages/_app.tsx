@@ -7,4 +7,6 @@ const App = ({Component, pageProps}:AppProps)=>{
     return <Component {...pageProps} />
 }
 
+// export const config = { amp:true }
+
 export default App;

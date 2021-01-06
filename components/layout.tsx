@@ -21,7 +21,7 @@ const Layout = ({ children }: Props) => {
                 <meta charSet="utf-8" />
                 <meta name="viewport" content="initial-scale=1.0, width=device-width" />
             </Head>
-            <header className={"flex flex-col items-center bg-gray-50"}>
+            <header className={"flex flex-col items-center bg-gray-50 rounded-lg "}>
                 <Link href="/">
                     <h1 className={'text-black text-4xl font-sans .font-extrabold'}>{siteTitle}</h1>
                 </Link>
@@ -31,7 +31,7 @@ const Layout = ({ children }: Props) => {
                 <main className={'w-10/12'}>{children}</main>
 
                 <aside className={'w-2/12 my-14'}>
-                    <div className={"bg-gray-50 rounded rounded-t-lg overflow-hidden shadow max-w-xs my-3bg-gray-50"}>
+                    <div className={"bg-gray-50 rounded-lg overflow-hidden shadow max-w-xs my-3bg-gray-50"}>
                         <Image className="w-full"
                             src="/images/12月/DSC_8467.jpg"
                             height=""

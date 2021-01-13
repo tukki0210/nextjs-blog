@@ -16,8 +16,8 @@ const Home = ({ allPostsData }) => {
         <div className={"flex flex-wrap -mx-1 lg:-mx-4"}>
 
           {allPostsData.map(({ id, title, date, image }) => (
-            <div className={"my-1 px-1 w-auto md:w-1/2 lg:my-4 lg:px-4 lg:w-1/3"}>
-              <div className={"bg-gray-100  overflow-hidden rounded-lg shadow-lg"} key={id}>
+            <div className={"my-1 px-1 w-auto md:w-1/2 lg:my-4 lg:px-4 lg:w-1/3"} key={id}>
+              <div className={"bg-gray-100  overflow-hidden rounded-lg shadow-lg"} >
                 <Link href={`/posts/${id}`}>
                   <div>
                     <Image className={"block  bg-cover bg-center hover:opacity-50 transition-transform duration-500 ease-in-out"}
@@ -33,7 +33,6 @@ const Home = ({ allPostsData }) => {
                       <Date dateString={date} />
                     </small>
                   </div>
-
                 </Link>
               </div>
             </div>

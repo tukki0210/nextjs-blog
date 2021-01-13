@@ -12,7 +12,7 @@ interface Props {
     url: string;
 }
 
-const metaHead = ({
+const ogpHead = ({
     title,
     description,
     keyword,
@@ -52,4 +52,4 @@ const metaHead = ({
     );
 };
 
-export default metaHead
+export default ogpHead

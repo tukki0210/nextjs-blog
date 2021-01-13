@@ -15,6 +15,7 @@ const Home = ({ allPostsData }) => {
       <div className={"container my-12 mx-auto px- md:px-6"}>
         <div className={"flex flex-wrap -mx-1 lg:-mx-4"}>
 
+          {/* 記事カード */}
           {allPostsData.map(({ id, title, date, image }) => (
             <div className={"my-1 px-1 w-auto md:w-1/2 lg:my-4 lg:px-4 lg:w-1/3"} key={id}>
               <div className={"bg-gray-100  overflow-hidden rounded-lg shadow-lg"} >
@@ -22,8 +23,8 @@ const Home = ({ allPostsData }) => {
                   <div>
                     <Image className={"block  bg-cover bg-center hover:opacity-50 transition-transform duration-500 ease-in-out"}
                       src={image}
-                      width={'400'}
-                      height={'400'}
+                      width={'450'}
+                      height={'300'}
                     />
 
                     <div className={"flex items-center justify-between leading-tight p-2"}>
@@ -37,7 +38,7 @@ const Home = ({ allPostsData }) => {
               </div>
             </div>
           ))}
-
+          {/* 記事カード終わり */}
         </div>
       </div>
     </Layout >

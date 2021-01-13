@@ -33,13 +33,13 @@ const Layout = ({ children }: Props) => {
                 <aside className={'w-2/12 my-14'}>
                     <div className={"bg-gray-50 rounded-lg overflow-hidden shadow max-w-xs my-3bg-gray-50"}>
                         <Image className="w-full"
-                            src="/images/12月/DSC_8467.jpg"
+                            src="/images/components/ukimido.jpg"
                             height=""
                             width=""
                         />
                         <div className="flex justify-center -mt-8">
                             <Image className={"rounded-full border-solid border-white border-2 -mt-3"}
-                                src="/images/tukki.jpg"
+                                src="/images/components/tukki.jpg"
                                 height="100"
                                 width="100"
                             />

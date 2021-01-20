@@ -36,7 +36,7 @@ const Layout = ({ children }: Props) => {
                 {/* <link rel="canonical" href={url} /> */}
 
             </Head>
-            <header className={"flex flex-col items-center bg-gray-50 rounded-lg "}>
+            <header className={"flex flex-col items-center bg-gray-50"}>
                 <Link href="/">
                     <h1 className={'text-black text-4xl font-sans .font-extrabold'}>{siteTitle}</h1>
                 </Link>
@@ -47,11 +47,11 @@ const Layout = ({ children }: Props) => {
 
                 <aside className={'w-auto px-2 my-14'}>
                     {/* プロフィールカード */}
-                    <div className={"bg-gray-50 rounded-lg overflow-hidden shadow max-w-xs my-3bg-gray-50"}>
+                    <div className={"bg-gray-50 overflow-hidden shadow max-w-xs my-3bg-gray-50"}>
                         <Image className="w-auto"
                             src="/images/components/ukimido.jpg"
-                            width={'240'}
-                            height={'160'}
+                            width={'auto'}
+                            height={'auto'}
                         />
 
                         <div className="flex justify-center -mt-8">
@@ -70,7 +70,7 @@ const Layout = ({ children }: Props) => {
                     {/* プロフィールカード終わり */}
 
                     {/* カテゴリ */}
-                    <div className={"bg-gray-50 rounded rounded-t-lg mt-2 p-4 "}>
+                    <div className={"bg-gray-50 mt-2 p-4 "}>
                         <h3>カテゴリー</h3>
                         <div>
                             <ul className={""}>カメラの話

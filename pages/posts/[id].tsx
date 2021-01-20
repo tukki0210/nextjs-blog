@@ -9,7 +9,7 @@ export default function Post({ postData }) {
         <Head>
           <title>{postData.title}</title>
         </Head>
-        <article className={'bg-gray-50 rounded-lg mx-4 px-10 my-14 py-4'}>
+        <article className={'bg-gray-50 mx-4 px-4 my-14 py-4'}>
           <h1 className={"text.2xl font-extrabold"}>{postData.title}</h1>
           <div className={"text-gray-900"}>
             <Date dateString={postData.date} />

@@ -50,6 +50,7 @@ const Layout = ({ children }: Props) => {
                         <div className={"bg-gray-50 overflow-hidden shadow max-w-xs my-3bg-gray-50"}>
                             <Image className="w-auto"
                                 src="/images/components/ukimido.jpg"
+                                alt="profileCard"
                                 width={'auto'}
                                 height={'auto'}
                             />
@@ -57,6 +58,7 @@ const Layout = ({ children }: Props) => {
                             <div className="flex justify-center -mt-8">
                                 <Image className={"rounded-full border-solid border-white border-2 -mt-3"}
                                     src="/images/components/tukki.jpg"
+                                    alt="profileImage"
                                     width={'100'}
                                     height={'100'}
                                 />

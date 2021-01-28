@@ -25,6 +25,7 @@ const Home = ({ allPostsData }) => {
                   <div>
                     <Image className={"block  bg-cover bg-center hover:opacity-50 transition-transform duration-500 ease-in-out"}
                       src={image}
+                      alt={title}
                       width={'450'}
                       height={'300'}
                     />

@@ -14,7 +14,7 @@ const CodeBlock = ({ language, value }) => {
 
 const renderers = {
   image: image => {
-    return <Image src={image.src} alt={image.alt} width="600" height="450"  />
+    return <Image src={image.src} alt={image.alt} width="600" height="450" />
   },
   code: CodeBlock
 }
@@ -32,12 +32,12 @@ export default function Post({ postData }) {
         </div>
         {/* <div dangerouslySetInnerHTML={{ __html: postData.contentHtml }} /> */}
         <div className="">
-        <ReactMarkdown
-          className={markdownStyles["markdown"]}
-          children={postData.contentHtml}
-          allowDangerousHtml = {true}
-          renderers={renderers}
-        />
+          <ReactMarkdown
+            className={markdownStyles["markdown"]}
+            children={postData.contentHtml}
+            allowDangerousHtml={true}
+            renderers={renderers}
+          />
         </div>
       </article>
     </Layout>

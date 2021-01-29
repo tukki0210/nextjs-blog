@@ -7,7 +7,7 @@ import Post from '../pages/posts/[id]'
 
 const postsDirectory = path.join(process.cwd(), 'posts')
 
-interface PostData{
+interface PostData {
     id: string,
     title: string,
     date: Date,
@@ -26,22 +26,19 @@ export function getSortedPostsData() {
         const fullPath = path.join(postsDirectory, fileName)
         const fileContents = fs.readFileSync(fullPath, 'utf8')
 
-        //Use gray-matter to parse the post metadata section
-        const matterResult = matter(fileContents)
-        // console.log(matterResult.data)
-        // Combine the data with the id
-         
+        const { data, content } = matter(fileContents)
+
         return {
-            id, ...matterResult.data
+            id,
+            ...data
         }
     })
 
     // 日付でソートする。a.bは型定義しないとエラーがでる
-
-    const sortedAllPostsData = allPostsData.sort((a:PostData,b:PostData) => {
+    const sortedAllPostsData = allPostsData.sort((a: PostData, b: PostData) => {
 
         if (a.date < b.date) {
-            return 1 
+            return 1
         } else {
             return -1
         }
@@ -61,24 +58,28 @@ export function getAllPostIds() {
     })
 }
 
+export async function markdownToHtml(markdown){
+    const result = await remark()
+        .use(html)
+        .process(markdown)
+    return result.toString()
+}
+
+//マークダウンをHTMLに変える
 export async function getPostData(id) {
     const fullPath = path.join(postsDirectory, `${id}.md`)
     const fileContents = fs.readFileSync(fullPath, 'utf8')
 
     //use gray-matter to parse the post metadata section
-    const matterResult = matter(fileContents)
+    const { data, content } = matter(fileContents)
 
-    //use remark to convert markdown into HTML string
-    const processedContent = await remark()
-        .use(html)
-
-        .process(matterResult.content)
-    const contentHtml = processedContent.toString()
-
+    //マークダウンの本文をString型にする
+    // const contentHtml = await markdownToHtml(matterResult)
+    const contentHtml = content
     //Combine the data with the id
     return {
         id,
-        contentHtml,
-        ...matterResult.data
+        ...data,
+        contentHtml
     }
 }

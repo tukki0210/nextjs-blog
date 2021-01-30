@@ -8,15 +8,14 @@ import ReactMarkdown from 'react-markdown';
 import Image from "next/image";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 
-const CodeBlock = ({ language, value }) => {
-  return <SyntaxHighlighter language={language}>{value}</SyntaxHighlighter>;
-};
 
 const renderers = {
   image: image => {
     return <Image src={image.src} alt={image.alt} width="600" height="450" />
   },
-  code: CodeBlock
+  code: ({ language, value }) => {
+    return <SyntaxHighlighter language={language} children={value} />
+  }
 }
 
 export default function Post({ postData }) {
@@ -30,13 +29,13 @@ export default function Post({ postData }) {
         <div className={"text-gray-900"}>
           <Date dateString={postData.date} />
         </div>
-        <div dangerouslySetInnerHTML={{ __html: postData.contentHtml }} />
-        {/* <ReactMarkdown
+        {/* <div dangerouslySetInnerHTML={{ __html: postData.contentHtml }} /> */}
+        <ReactMarkdown
           className={markdownStyles["markdown"]}
-          children={postData.contentHtml}
+          children={postData.content}
           allowDangerousHtml={true}
           renderers={renderers}
-        /> */}
+        />
       </article>
     </Layout>
   )

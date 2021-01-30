@@ -75,11 +75,11 @@ export async function getPostData(id) {
 
     //マークダウンの本文をString型にする
     // const contentHtml = await markdownToHtml(matterResult)
-    const contentHtml = content
+    // const contentHtml = content
     //Combine the data with the id
     return {
         id,
         ...data,
-        contentHtml
+        content
     }
 }

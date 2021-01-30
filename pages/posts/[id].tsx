@@ -30,13 +30,13 @@ export default function Post({ postData }) {
         <div className={"text-gray-900"}>
           <Date dateString={postData.date} />
         </div>
-        {/* <div dangerouslySetInnerHTML={{ __html: postData.contentHtml }} /> */}
-        <ReactMarkdown
+        <div dangerouslySetInnerHTML={{ __html: postData.contentHtml }} />
+        {/* <ReactMarkdown
           className={markdownStyles["markdown"]}
           children={postData.contentHtml}
           allowDangerousHtml={true}
           renderers={renderers}
-        />
+        /> */}
       </article>
     </Layout>
   )

@@ -31,19 +31,16 @@ export default function Post({ postData }) {
           <Date dateString={postData.date} />
         </div>
         {/* <div dangerouslySetInnerHTML={{ __html: postData.contentHtml }} /> */}
-        <div className="">
-          <ReactMarkdown
-            className={markdownStyles["markdown"]}
-            children={postData.contentHtml}
-            allowDangerousHtml={true}
-            renderers={renderers}
-          />
-        </div>
+        <ReactMarkdown
+          className={markdownStyles["markdown"]}
+          children={postData.contentHtml}
+          allowDangerousHtml={true}
+          renderers={renderers}
+        />
       </article>
     </Layout>
   )
 }
-
 
 export async function getStaticPaths() {
   // Return a list of possible value for id

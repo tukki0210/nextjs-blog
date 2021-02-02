@@ -42,19 +42,19 @@ const Layout = ({ children }: Props) => {
             </header>
             {/* lg(1024px)以上の画面サイズでflexboxに変更 */}
             <div className={'block lg:flex justify-between mb-1'}>
-                <main className={'lg:w-9/12'}>{children}</main>
+                <main className={'lg:w-10/12'}>{children}</main>
 
-                <aside className={'lg:w-3/12 px-2 my-14'}>
+                <aside className={'lg:w-2/12 px-2 my-14'}>
                     {/* プロフィールカード */}
                     <div className={"bg-gray-50 overflow-hidden shadow max-w-xs my-3bg-gray-50"}>
                         <Image className="w-auto"
                             src="/images/components/ukimido.jpg"
                             alt="profileCard"
-                            width={'auto'}
-                            height={'auto'}
+                            width={'300'}
+                            height={'200'}
                         />
 
-                        <div className="flex justify-center -mt-8">
+                        <div className="flex justify-center -mt-20">
                             <Image className={"rounded-full border-solid border-white border-2 -mt-3"}
                                 src="/images/components/tukki.jpg"
                                 alt="profileImage"

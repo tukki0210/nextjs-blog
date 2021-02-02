@@ -74,14 +74,14 @@ const Layout = ({ children }: Props) => {
                     <div className={"bg-gray-50 mt-2 p-4 "}>
                         <h3>カテゴリー</h3>
 
-                        <ul className={""}>カメラの話
+                        {/* <ul className={""}>カメラの話
                                 <li>Nikon</li>
                             <li>レンズ</li>
                         </ul>
                         <ul>プログラミングの話
                                 <li>Java</li>
                             <li>React</li>
-                        </ul>
+                        </ul> */}
                     </div>
                     {/* カテゴリ終わり */}
                 </aside>

@@ -1,9 +1,9 @@
 import fs from 'fs'
 import path from 'path'
 import matter from 'gray-matter'
-import remark from 'remark'
-import html from 'remark-html'
-import Post from '../pages/posts/[id]'
+// import remark from 'remark'
+// import html from 'remark-html'
+
 
 const postsDirectory = path.join(process.cwd(), 'posts')
 
@@ -22,7 +22,7 @@ export function getSortedPostsData() {
         //remove ".md" from file name to get id
         const id = fileName.replace(/\.md$/, '')
 
-        // Read markdown file as string
+        
         const fullPath = path.join(postsDirectory, fileName)
         const fileContents = fs.readFileSync(fullPath, 'utf8')
 
@@ -58,12 +58,12 @@ export function getAllPostIds() {
     })
 }
 
-export async function markdownToHtml(markdown){
-    const result = await remark()
-        .use(html)
-        .process(markdown)
-    return result.toString()
-}
+// export async function markdownToHtml(markdown){
+//     const result = await remark()
+//         .use(html)
+//         .process(markdown)
+//     return result.toString()
+// }
 
 //マークダウンをHTMLに変える
 export async function getPostData(id) {

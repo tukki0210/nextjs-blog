@@ -14,7 +14,7 @@ type Props = {
 
 const Layout = ({ children }: Props) => {
     return (
-        <html lang="ja" >
+        <div>
             <Head>
                 <meta charSet="utf-8" />
                 <meta name="viewport" content="initial-scale=1.0, width=device-width" />
@@ -34,9 +34,9 @@ const Layout = ({ children }: Props) => {
                 {/* <link rel="canonical" href={url} /> */}
 
             </Head>
-            <header className={"flex flex-col items-center bg-gray-50"}>
+            <header className={"flex flex-col items-center "}>
                 <Link href="/">
-                    <h1 className={'　text-black text-4xl font-sans .font-extrabold'}>{siteTitle}</h1>
+                    <h1 className={'text-white text-4xl font-sans font-extrabold'}>{siteTitle}</h1>
                 </Link>
             </header>
             {/* lg(1024px)以上の画面サイズでflexboxに変更 */}
@@ -71,7 +71,7 @@ const Layout = ({ children }: Props) => {
 
                     {/* カテゴリ */}
                     <div className={"bg-gray-50 mt-2 p-4 "}>
-                        <h3 className="border-solid border-0 border-b-2 border-indigo-400 ">カテゴリー</h3>
+                        <h3 className="border-solid border-0 border-b-2 text-blue-300 ">カテゴリー</h3>
                         <h4>プログラミングの話</h4>
                         <ul className={"list-none mb-10"}>
                             <li className=""><a className={"block p-2"} href="#">Java</a></li>
@@ -94,7 +94,7 @@ const Layout = ({ children }: Props) => {
                     {/* カテゴリ終わり */}
                 </aside>
             </div>
-        </html>
+        </div>
     )
 }
 

@@ -5,8 +5,8 @@ import Image from 'next/image'
 
 
 const name = 'つっきー'
-export const siteTitle = "カメラと本と時々プログラミング"
-export const subTitle = ""
+export const siteTitle = "地方公務員のプログラミング日記"
+export const subTitle = "主にプログラミングについて"
 
 type Props = {
     children?: ReactNode
@@ -36,7 +36,7 @@ const Layout = ({ children }: Props) => {
             </Head>
             <header className={"flex flex-col items-center "}>
                 <Link href="/">
-                    <h1 className={'text-white text-4xl font-sans font-extrabold'}>{siteTitle}</h1>
+                    <h1 className={'text-white text-4xl  font-extrabold'}>{siteTitle}</h1>
                 </Link>
             </header>
             {/* lg(1024px)以上の画面サイズでflexboxに変更 */}
@@ -63,8 +63,8 @@ const Layout = ({ children }: Props) => {
                         </div>
 
                         <div className="text-center px-3 pb-6 pt-2">
-                            <h2 className="text-black text-lg bold font-sans"> つっきー </h2>
-                            <p className="text-black mt-2 font-sans font-light text-grey-dark">某地方公務員の技術系の日記です</p>
+                            <h2 className="text-black text-lg bold ">{name}</h2>
+                            <p className="text-black mt-2  font-light text-grey-dark">{subTitle}</p>
                         </div>
                     </div>
                     {/* プロフィールカード終わり */}
@@ -73,22 +73,22 @@ const Layout = ({ children }: Props) => {
                     <div className={"bg-gray-50 mt-2 p-4 "}>
                         <h3 className="border-solid border-0 border-b-2 text-blue-300 ">カテゴリー</h3>
                         <h4>プログラミングの話</h4>
-                        <ul className={"list-none mb-10"}>
-                            <li className=""><a className={"block p-2"} href="#">Java</a></li>
-                            <li><a className={"block p-2"} href="#">JavaScript</a></li>
-                            <li><a className={"block p-2"} href="#">Node.js</a></li>
-                            <li><a className={"block p-2"} href="#">React</a></li>
-                            <li><a className={"block p-2"} href="#">Next.js</a></li>
+                        <ul>
+                            <li><a href="#">Java</a></li>
+                            <li><a  href="#">JavaScript</a></li>
+                            <li><a  href="#">Node.js</a></li>
+                            <li><a  href="#">React</a></li>
+                            <li><a  href="#">Next.js</a></li>
                         </ul>
                         <h4>読書記録</h4>
-                        <ul className={"list-none mb-10"}>
-                            <li><a className={"block p-2"} href="#">ビジネス書</a></li>
-                            <li><a className={"block p-2"} href="#">小説</a></li>
+                        <ul>
+                            <li><a  href="#">ビジネス書</a></li>
+                            <li><a  href="#">小説</a></li>
                         </ul>
                         <h4>カメラの話</h4>
-                        <ul className={"list-none mb-10"}>
-                            <li><a className={"block p-2"} href="#">カメラ全般</a></li>
-                            <li><a className={"block p-2"} href="#">レンズ</a></li>
+                        <ul>
+                            <li><a  href="#">カメラ全般</a></li>
+                            <li><a  href="#">レンズ</a></li>
                         </ul>
                     </div>
                     {/* カテゴリ終わり */}

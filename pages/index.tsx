@@ -20,10 +20,10 @@ const Home = ({ allPostsData }) => {
             // 各記事の間隔
             <div className={"my-1 px-1 w-auto md:w-1/2 lg:my-2 lg:px-2 lg:w-1/3"} key={id}>
               {/* 各記事カードのスタイル */}
-              <div className={"bg-gray-100 overflow-hidden shadow-lg"} >
+              <div className={"bg-gray-100 overflow-hidden shadow-lg hover:opacity-80 "} >
                 <Link href={`/posts/${id}`}>
                   <div>
-                    <Image className={"block  bg-cover bg-center hover:opacity-50 transition-transform duration-500 ease-in-out"}
+                    <Image className={"block  bg-cover bg-center transition-transform duration-500 ease-in-out"}
                       src={image}
                       alt={""}
                       width={'450'}

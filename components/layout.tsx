@@ -34,18 +34,18 @@ const Layout = ({ children }: Props) => {
                 {/* <link rel="canonical" href={url} /> */}
 
             </Head>
-            <header className={"flex flex-col items-center "}>
+            <header className={"text-center "}>
                 <Link href="/">
                     <h1 className={'text-white text-4xl  font-extrabold'}>{siteTitle}</h1>
                 </Link>
             </header>
             {/* lg(1024px)以上の画面サイズでflexboxに変更 */}
-            <div className={'block lg:flex justify-between mb-1'}>
-                <main className={'lg:w-15/18'}>{children}</main>
+            <div className={'lg:container mx-auto mt-10 lg:flex justify-between'}>
+                <main className={'lg:w-12/18'}>{children}</main>
 
-                <aside className={'lg:w-2/18 px-2 my-14'}>
+                <aside className={'lg:w-2/18 px-2 '}>
                     {/* プロフィールカード */}
-                    <div className={"bg-gray-50 overflow-hidden shadow max-w-xs my-3bg-gray-50"}>
+                    <div className={"bg-gray-50 overflow-hidden shadow max-w-xs bg-gray-50"}>
                         <Image className="w-auto"
                             src="/images/components/ukimido.jpg"
                             alt="profileCard"
@@ -53,7 +53,7 @@ const Layout = ({ children }: Props) => {
                             height={'200'}
                         />
 
-                        <div className="flex justify-center -mt-20">
+                        <div className="flex justify-center -mt-10">
                             <Image className={"rounded-full border-solid border-white border-2 -mt-3"}
                                 src="/images/components/tukki.jpg"
                                 alt="profileImage"

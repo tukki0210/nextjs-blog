@@ -22,15 +22,15 @@ const Home = ({ allPostsData }) => {
               {/* 各記事カードのスタイル */}
               <div className={"mb-4 mr-4 bg-gray-100 overflow-hidden shadow-lg hover:opacity-80 "} >
                 <Link href={`/posts/${id}`}>
-                  <div>
-                    <Image className={"block  bg-cover bg-center transition-transform duration-500 ease-in-out"}
+                    <div className={"items-center"}>
+                    <Image
                       src={image}
-                      alt={""}
+                      alt={title}
                       width={'450'}
                       height={'300'}
                     />
                     {/* タイトルカード */}
-                    <div className={"flex items-center h-12 justify-between leading-tight p-2"}>
+                    <div className={"items-center h-12 leading-tight px-4"}>
                       <p>{title}</p>
                     </div>
                     <small className={"text-grey-darker text-sm pl-4"}>

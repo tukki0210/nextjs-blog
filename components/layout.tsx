@@ -40,10 +40,10 @@ const Layout = ({ children }: Props) => {
                 </Link>
             </header>
             {/* lg(1024px)以上の画面サイズでflexboxに変更 */}
-            <div className={'lg:container mx-auto mt-10 lg:flex justify-between'}>
-                <main className={'lg:w-12/18'}>{children}</main>
+            <div className={'xl:container mx-auto mt-10 xl:flex justify-between'}>
+                <main className={'lg:w-10/12'}>{children}</main>
 
-                <aside className={'lg:w-2/18 px-2 '}>
+                <aside className={'lg:w-2/12 px-2 '}>
                     {/* プロフィールカード */}
                     <div className={"bg-gray-50 overflow-hidden shadow max-w-xs bg-gray-50"}>
                         <Image className="w-auto"

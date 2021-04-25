@@ -24,14 +24,14 @@ export default function Post({ postData }) {
       <Head>
         <title>{postData.title}</title>
       </Head>
-      <article className={'bg-gray-50 mx-4 px-4 my-14 py-4'}>
-        <h1 className={"text.2xl font-extrabold"}>{postData.title}</h1>
+      <article className={'bg-gray-50 mx-4 p-10 '}>
+        <h2>{postData.title}</h2>
         <div className={"text-gray-900"}>
           <Date dateString={postData.date} />
         </div>
         {/* <div dangerouslySetInnerHTML={{ __html: postData.contentHtml }} /> */}
         <ReactMarkdown
-          className={markdownStyles["markdown"]}
+          className={markdownStyles["markdown"] }
           children={postData.content}
           allowDangerousHtml={true}
           renderers={renderers}

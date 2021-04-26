@@ -1,9 +1,6 @@
 import fs from 'fs'
 import path from 'path'
 import matter from 'gray-matter'
-// import remark from 'remark'
-// import html from 'remark-html'
-
 
 const postsDirectory = path.join(process.cwd(), 'posts')
 
@@ -73,10 +70,6 @@ export async function getPostData(id) {
     //use gray-matter to parse the post metadata section
     const { data, content } = matter(fileContents)
 
-    //マークダウンの本文をString型にする
-    // const contentHtml = await markdownToHtml(matterResult)
-    // const contentHtml = content
-    //Combine the data with the id
     return {
         id,
         ...data,

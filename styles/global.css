@@ -38,6 +38,12 @@ a:hover {
     text-decoration: underline;
 }
 
+header {
+    background-image: url("../public/images/components/macbook1697_TP_V.jpg");
+    width: 100%;
+    height: 30vh;
+}
+
 @import "tailwindcss/components";
 
 @import "tailwindcss/utilities";

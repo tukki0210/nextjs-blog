@@ -34,9 +34,9 @@ const Layout = ({ children }: Props) => {
                 {/* <link rel="canonical" href={url} /> */}
 
             </Head>
-            <header className={"text-center "}>
+            <header className={"text-center"}>
                 <Link href="/">
-                    <h1 className={'text-white text-4xl  font-extrabold'}>{siteTitle}</h1>
+                    <h1 className={'text-white text-4xl  font-extrabold mt-0 pt-20'}>{siteTitle}</h1>
                 </Link>
             </header>
             {/* lg(1024px)以上の画面サイズでflexboxに変更 */}
@@ -75,20 +75,20 @@ const Layout = ({ children }: Props) => {
                         <h4>プログラミングの話</h4>
                         <ul>
                             <li><a href="#">Java</a></li>
-                            <li><a  href="#">JavaScript</a></li>
-                            <li><a  href="#">Node.js</a></li>
-                            <li><a  href="#">React</a></li>
-                            <li><a  href="#">Next.js</a></li>
+                            <li><a href="#">JavaScript</a></li>
+                            <li><a href="#">Node.js</a></li>
+                            <li><a href="#">React</a></li>
+                            <li><a href="#">Next.js</a></li>
                         </ul>
                         <h4>読書記録</h4>
                         <ul>
-                            <li><a  href="#">ビジネス書</a></li>
-                            <li><a  href="#">小説</a></li>
+                            <li><a href="#">ビジネス書</a></li>
+                            <li><a href="#">小説</a></li>
                         </ul>
                         <h4>カメラの話</h4>
                         <ul>
-                            <li><a  href="#">カメラ全般</a></li>
-                            <li><a  href="#">レンズ</a></li>
+                            <li><a href="#">カメラ全般</a></li>
+                            <li><a href="#">レンズ</a></li>
                         </ul>
                     </div>
                     {/* カテゴリ終わり */}

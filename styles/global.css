@@ -12,8 +12,21 @@ body {
     line-height: 1.6;
     font-size: 18px;
     max-width: 100%;
-    background-color: rgba(147, 193, 253, 1);
-    /* text-blue-300 */
+    /* 木目調のCSS */
+    background:
+    linear-gradient(
+      90deg,
+      rgba(208, 147, 82, 0.6),
+      rgba(192, 134, 70, 0.6) 60%,
+      rgba(208, 147, 82, 0.6)
+    ),
+    repeating-radial-gradient(
+      ellipse at 60% 500%,
+      #c08646,
+      #c08646 0.2%,
+      #d09352 0.6%,
+      #d09352 1%
+    );
 }
 
 * {

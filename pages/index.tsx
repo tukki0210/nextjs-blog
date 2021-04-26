@@ -20,25 +20,27 @@ const Home = ({ allPostsData }) => {
             // 各記事の間隔
             <div className={" w-auto md:w-1/2 lg:w-1/3"} key={id}>
               {/* 各記事カードのスタイル */}
-              <div className={"mb-4 mr-4 bg-gray-100 overflow-hidden shadow-lg hover:opacity-80 "} >
-                <Link href={`/posts/${id}`}>
+              <div className={"mb-4 mr-4 bg-gray-100 overflow-hidden hover:opacity-80 "} >
+                <div className={"bg-yellow-100 shadow-md"}>
+                  <Link href={`/posts/${id}`}>
                     <div className={"items-center"}>
-                    <Image
-                      src={image}
-                      alt={title}
-                      width={'450'}
-                      height={'300'}
-                    />
-                    {/* タイトルカード */}
-                    <div className={"items-center h-12 leading-tight px-4"}>
-                      <p>{title}</p>
+                      <Image
+                        src={image}
+                        alt={title}
+                        width={'450'}
+                        height={'300'}
+                      />
+                      {/* タイトルカード */}
+                      <div className={"items-center h-12 leading-tight px-4"}>
+                        <p>{title}</p>
+                      </div>
+                      <small className={"text-grey-darker text-sm pl-4"}>
+                        <Date dateString={date} />
+                      </small>
+                      {/* タイトルカード終わり */}
                     </div>
-                    <small className={"text-grey-darker text-sm pl-4"}>
-                      <Date dateString={date} />
-                    </small>
-                    {/* タイトルカード終わり */}
-                  </div>
-                </Link>
+                  </Link>
+                </div>
               </div>
             </div>
           ))}

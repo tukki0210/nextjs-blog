@@ -71,7 +71,7 @@ const Layout = ({ children }: Props) => {
 
                     {/* カテゴリ */}
                     <div className={"bg-gray-50 mt-2 p-4 "}>
-                        <h3 className="border-solid border-0 border-b-2 text-blue-300 ">カテゴリー</h3>
+                        <h3 className="border-solid border-0 border-b-2 text-yellow-300 ">カテゴリー</h3>
                         <h4>プログラミングの話</h4>
                         <ul>
                             <li><a href="#">Java</a></li>

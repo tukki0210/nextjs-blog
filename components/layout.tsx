@@ -45,7 +45,7 @@ const Layout = ({ children }: Props) => {
 
                 <aside className={'lg:w-2/12 px-2 '}>
                     {/* プロフィールカード */}
-                    <div className={"bg-gray-50 overflow-hidden shadow max-w-xs bg-gray-50"}>
+                    <div className={"bg-yellow-100 overflow-hidden shadow max-w-xs"}>
                         <Image className="w-auto"
                             src="/images/components/ukimido.jpg"
                             alt="profileCard"
@@ -70,7 +70,7 @@ const Layout = ({ children }: Props) => {
                     {/* プロフィールカード終わり */}
 
                     {/* カテゴリ */}
-                    <div className={"bg-gray-50 mt-2 p-4 "}>
+                    <div className={"bg-yellow-100 mt-2 p-4 "}>
                         <h3 className="border-solid border-0 border-b-2 text-yellow-300 ">カテゴリー</h3>
                         <h4>プログラミングの話</h4>
                         <ul>

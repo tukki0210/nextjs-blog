@@ -6,7 +6,7 @@ import Image from 'next/image'
 
 const name = 'つっきー'
 export const siteTitle = "地方公務員のプログラミング日記"
-export const subTitle = "主にプログラミングについて"
+export const subTitle = "未経験から異動で職業訓練校のITの指導員になった公務員のプログラミング勉強日記。"
 
 type Props = {
     children?: ReactNode
@@ -40,12 +40,12 @@ const Layout = ({ children }: Props) => {
                 </Link>
             </header>
             {/* lg(1024px)以上の画面サイズでflexboxに変更 */}
-            <div className={'xl:container mx-auto mt-10 xl:flex justify-between'}>
-                <main className={'lg:w-10/12'}>{children}</main>
+            <div className={'xl:container mx-auto mt-10 xl:flex xl:justify-between xl:justify-center'}>
+                <main className={'xl:w-10/12 px-2'}>{children}</main>
 
-                <aside className={'lg:w-2/12 px-2 '}>
+                <aside className={'xl:w-2/12 px-2 md:w-1/2 flex flex-row xl:flex-col'}>
                     {/* プロフィールカード */}
-                    <div className={"bg-yellow-100 overflow-hidden shadow max-w-xs"}>
+                    <div className={"bg-yellow-100 overflow-hidden shadow"}>
                         <Image className="w-auto"
                             src="/images/components/ukimido.jpg"
                             alt="profileCard"

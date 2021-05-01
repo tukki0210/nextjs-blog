@@ -19,7 +19,7 @@ export function getSortedPostsData() {
         //remove ".md" from file name to get id
         const id = fileName.replace(/\.md$/, '')
 
-        
+
         const fullPath = path.join(postsDirectory, fileName)
         const fileContents = fs.readFileSync(fullPath, 'utf8')
 
@@ -63,7 +63,7 @@ export function getAllPostIds() {
 // }
 
 //マークダウンをHTMLに変える
-export async function getPostData(id) {
+export async function getPostData(id: String) {
     const fullPath = path.join(postsDirectory, `${id}.md`)
     const fileContents = fs.readFileSync(fullPath, 'utf8')
 

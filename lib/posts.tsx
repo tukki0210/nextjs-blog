@@ -13,12 +13,15 @@ interface PostData {
 
 export function getSortedPostsData() {
     //Get file names under /posts
-    const fileNames = fs.readdirSync(postsDirectory)
+
+    // const fileNames = fs.readdirSync(postsDirectory).
+
+    // .DS_Storeファイルを除外する
+    const fileNames = fs.readdirSync(postsDirectory).filter(fileName => fileName.includes('md'))
 
     const allPostsData = fileNames.map(fileName => {
         //remove ".md" from file name to get id
         const id = fileName.replace(/\.md$/, '')
-
 
         const fullPath = path.join(postsDirectory, fileName)
         const fileContents = fs.readFileSync(fullPath, 'utf8')

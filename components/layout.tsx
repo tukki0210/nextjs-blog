@@ -6,7 +6,7 @@ import Image from 'next/image'
 
 const name = 'つっきー'
 export const siteTitle = "地方公務員のプログラミング日記"
-export const subTitle = "未経験から異動で職業訓練校のITの指導員になった公務員のプログラミング勉強日記。"
+export const subTitle = "未経験なのに職業訓練校の指導員になった公務員の勉強日記。ブログ機能諸々をNext.jsで作成しています。（一部未完成）"
 
 type Props = {
     children?: ReactNode

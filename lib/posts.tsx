@@ -4,7 +4,7 @@ import matter from 'gray-matter'
 
 const postsDirectory = path.join(process.cwd(), 'posts')
 
-interface PostData {
+type PostData = {
     id: string,
     title: string,
     date: Date,

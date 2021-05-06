@@ -10,50 +10,42 @@ type PostData = {
     id: string,
     title: string,
     date: Date,
-    image: string
 };
 
+// .mdファイル以外を除外する
+const fileNames = fs.readdirSync(postsDirectory).filter(fileName => fileName.includes('md'))
 
-export function getSortedPostsData() {
+type matterFileContents = {
+    data: { [key: string]: PostData; }
+    content: string
+}
+
+const getMatterFileContents = (id: string): matterFileContents => {
+    const fullPath = path.join(postsDirectory, `${id}.md`)
+    const fileContents = fs.readFileSync(fullPath, 'utf8')
+    //use gray-matter to parse the post metadata section
+    return matter(fileContents)
+}
+
+export function getAllPostsData() {
     //Get file names under /posts
-
-    // const fileNames = fs.readdirSync(postsDirectory).
-
-    // .DS_Storeファイルを除外する
-    const fileNames = fs.readdirSync(postsDirectory).filter(fileName => fileName.includes('md'))
 
     const allPostsData = fileNames.map(fileName => {
         //remove ".md" from file name to get id
+
         const id = fileName.replace(/\.md$/, '')
-
-        const fullPath = path.join(postsDirectory, fileName)
-        const fileContents = fs.readFileSync(fullPath, 'utf8')
-
-        const { data, content } = matter(fileContents)
-
+        const { data, content } = getMatterFileContents(id)
         return {
             id,
             ...data
         }
     })
-
-    // 日付でソートする。a.bは型定義しないとエラーがでる
-    // const sortedAllPostsData = allPostsData.sort((a: PostData, b: PostData) => {
-
-    //     if (a.date < b.date) {
-    //         return 1
-    //     } else {
-    //         return -1
-    //     }
-    // })
-    // return sortedAllPostsData
-
-    return allPostsData.sort((a: PostData,b: PostData)=> a.date <b.date ? 1 : -1 )
+    // 日付順にソート
+    return allPostsData.sort((a: PostData, b: PostData) => a.date < b.date ? 1 : -1)
 }
 
 export function getAllPostIds() {
-    const fileNames = fs.readdirSync(postsDirectory)
-
+    // const fileNames = fs.readdirSync(postsDirectory)
     return fileNames.map(fileName => {
         return {
             params: {
@@ -63,20 +55,9 @@ export function getAllPostIds() {
     })
 }
 
-// export async function markdownToHtml(markdown){
-//     const result = await remark()
-//         .use(html)
-//         .process(markdown)
-//     return result.toString()
-// }
+export async function getPostData(id: string) {
 
-//マークダウンをHTMLに変える
-export async function getPostData(id: String) {
-    const fullPath = path.join(postsDirectory, `${id}.md`)
-    const fileContents = fs.readFileSync(fullPath, 'utf8')
-
-    //use gray-matter to parse the post metadata section
-    const { data, content } = matter(fileContents)
+    const { data, content } = getMatterFileContents(id)
 
     return {
         id,

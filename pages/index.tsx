@@ -4,7 +4,7 @@ import Link from 'next/link'
 import Date from '../components/date'
 import Image from 'next/image'
 
-import { getSortedPostsData } from '../lib/posts'
+import { getAllPostsData } from '../lib/posts'
 
 
 const Home = ({ allPostsData }) => {
@@ -56,7 +56,7 @@ export default Home
 // 静的なファイルを事前にビルドする
 
 export async function getStaticProps() {
-  const allPostsData = await getSortedPostsData()
+  const allPostsData = await getAllPostsData()
   return {
     props: {
       allPostsData

@@ -9,7 +9,6 @@ import { getSortedPostsData } from '../lib/posts'
 
 const Home = ({ allPostsData }) => {
 
-  // console.log(allPostsData)
   return (
     <Layout>
       <Head>
@@ -52,6 +51,9 @@ const Home = ({ allPostsData }) => {
 }
 
 export default Home
+
+// getStaticPropsはサーバサイドで実行される
+// 静的なファイルを事前にビルドする
 
 export async function getStaticProps() {
   const allPostsData = await getSortedPostsData()

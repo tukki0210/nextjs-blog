@@ -50,9 +50,13 @@ export async function getStaticPaths() {
   }
 }
 
+// getStaticPropsはサーバサイドで実行される
+// 静的なファイルを事前にビルドする
 
+// ルーティング情報が入ったparamsを受け取る
 export async function getStaticProps({ params }) {
   // Fetch necessary data for the blog post using params.id
+  // params.id はファイル名の[id].tsx に対応する
   const postData = await getPostData(params.id)
 
   return {

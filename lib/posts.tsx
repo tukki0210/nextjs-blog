@@ -4,12 +4,15 @@ import matter from 'gray-matter'
 
 const postsDirectory = path.join(process.cwd(), 'posts')
 
+type Date = `${number}-${number}-${number}`
+
 type PostData = {
     id: string,
     title: string,
     date: Date,
     image: string
 };
+
 
 export function getSortedPostsData() {
     //Get file names under /posts
@@ -35,15 +38,17 @@ export function getSortedPostsData() {
     })
 
     // 日付でソートする。a.bは型定義しないとエラーがでる
-    const sortedAllPostsData = allPostsData.sort((a: PostData, b: PostData) => {
+    // const sortedAllPostsData = allPostsData.sort((a: PostData, b: PostData) => {
 
-        if (a.date < b.date) {
-            return 1
-        } else {
-            return -1
-        }
-    })
-    return sortedAllPostsData
+    //     if (a.date < b.date) {
+    //         return 1
+    //     } else {
+    //         return -1
+    //     }
+    // })
+    // return sortedAllPostsData
+
+    return allPostsData.sort((a: PostData,b: PostData)=> a.date <b.date ? 1 : -1 )
 }
 
 export function getAllPostIds() {

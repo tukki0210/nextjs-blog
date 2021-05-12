@@ -17,6 +17,9 @@
     @apply text-2xl mt-8 mb-4 leading-snug;
   }
 
+  .markdown red {
+    @apply text-red-500
+  }
   .markdown a {
     @apply text-green-600
   }

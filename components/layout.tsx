@@ -6,7 +6,7 @@ import Image from 'next/image'
 
 const name = 'つっきー'
 export const siteTitle = "地方公務員のプログラミング日記"
-export const subTitle = "未経験なのに職業訓練校の指導員になった公務員の勉強日記。ブログ機能諸々をNext.jsで作成しています。（一部未完成）"
+export const subTitle = "未経験なのに職業訓練校の指導員になってしまった公務員の勉強日記。このブログはTypeScript + Next.js + TailWind CSS + Vercelで構成してます。（一部未完成）"
 
 type Props = {
     children?: ReactNode
@@ -71,7 +71,7 @@ const Layout = ({ children }: Props) => {
 
                     {/* カテゴリ */}
                     <div className={"bg-yellow-100 mt-2 p-4 "}>
-                        <h3 className="border-solid border-0 border-b-2 text-red-600 ">カテゴリー</h3>
+                        <h3 className="border-solid border-0 border-b-2 text-red-600 ">カテゴリー（未対応）</h3>
                         <h4>プログラミングの話</h4>
                         <ul>
                             <li><a href="#">Java</a></li>
@@ -83,12 +83,6 @@ const Layout = ({ children }: Props) => {
                         <h4>読書記録</h4>
                         <ul>
                             <li><a href="#">ビジネス書</a></li>
-                            <li><a href="#">小説</a></li>
-                        </ul>
-                        <h4>カメラの話</h4>
-                        <ul>
-                            <li><a href="#">カメラ全般</a></li>
-                            <li><a href="#">レンズ</a></li>
                         </ul>
                     </div>
                     {/* カテゴリ終わり */}

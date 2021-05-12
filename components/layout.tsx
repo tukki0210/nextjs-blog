@@ -5,8 +5,8 @@ import Image from 'next/image'
 
 
 const name = 'つっきー'
-export const siteTitle = "地方公務員のプログラミング日記"
-export const subTitle = "未経験なのに職業訓練校の指導員になってしまった公務員の勉強日記。このブログはTypeScript + Next.js + TailWind CSS + Vercelで構成してます。（一部未完成）"
+export const siteTitle = "とある理系公務員のプログラミング日記"
+export const subTitle = "python趣味レベルの理系公務員 → 異動で職業訓練校のIT指導員に。ガチ指導するために必死で勉強中。このブログはTypeScript + Next.js + TailWind CSS + Vercelで構成してます。（一部未完成）"
 
 type Props = {
     children?: ReactNode

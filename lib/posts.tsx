@@ -27,7 +27,7 @@ const getMatterFileContents = (id: string): matterFileContents => {
     return matter(fileContents)
 }
 
-export async function getAllPostsData() {
+export const getAllPostsData = async () => {
     //Get file names under /posts
 
     const allPostsData = fileNames.map(fileName => {
@@ -43,7 +43,7 @@ export async function getAllPostsData() {
     return allPostsData.sort((a: PostData, b: PostData) => a.date < b.date ? 1 : -1)
 }
 
-export async function getAllPostIds() {
+export const getAllPostIds = async () => {
     // const fileNames = fs.readdirSync(postsDirectory)
     return fileNames.map(fileName => {
         return {
@@ -54,10 +54,10 @@ export async function getAllPostIds() {
     })
 }
 
-export async function getPostData(id: string) {
+export const getPostData = async (id: string) => {
 
     const { data, content } = getMatterFileContents(id)
-    
+
     return {
         id,
         ...data,

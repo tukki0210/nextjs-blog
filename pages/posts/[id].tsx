@@ -6,8 +6,10 @@ import markdownStyles from "../../styles/markdown-styles.module.css"
 
 import ReactMarkdown from 'react-markdown';
 import Image from "next/image";
+import { InferGetStaticPropsType } from 'next';
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 
+type Props = InferGetStaticPropsType<typeof getStaticProps>;
 
 const renderers = {
   image: image => {
@@ -18,7 +20,8 @@ const renderers = {
   }
 }
 
-export default function Post({ postData }) {
+
+const Post = ({ postData }) => {
   return (
     <Layout>
       <Head>
@@ -40,8 +43,10 @@ export default function Post({ postData }) {
     </Layout>
   )
 }
+export default Post;
 
-export async function getStaticPaths() {
+
+export const getStaticPaths = async () => {
   // Return a list of possible value for id
   const paths = await getAllPostIds()
   return {
@@ -54,7 +59,7 @@ export async function getStaticPaths() {
 // 静的なファイルを事前にビルドする
 
 // ルーティング情報が入ったparamsを受け取る
-export async function getStaticProps({ params }) {
+export const getStaticProps = async ({ params }) => {
   // Fetch necessary data for the blog post using params.id
   // params.id はファイル名の[id].tsx に対応する
   const postData = await getPostData(params.id)
@@ -67,7 +72,7 @@ export async function getStaticProps({ params }) {
 }
 
 // //getStaticPropsで外部APIを叩くことができる
-// export async function getStaticProps(context) {
+// const getStaticProps = (context) => {
 //   const res = await fetch(`https://.../data`)
 //   const data = await res.json()
 

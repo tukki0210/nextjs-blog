@@ -8,7 +8,6 @@ import { getAllPostsData } from '../lib/posts'
 
 
 const Home = ({ allPostsData }) => {
-
   return (
     <Layout>
       <Head>
@@ -55,11 +54,11 @@ export default Home
 // getStaticPropsはサーバサイドで実行される
 // 静的なファイルを事前にビルドする
 
-export async function getStaticProps() {
+export const getStaticProps = async () => {
   const allPostsData = await getAllPostsData()
   return {
     props: {
       allPostsData
     }
-  }
-}
+  };
+};

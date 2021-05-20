@@ -1,4 +1,4 @@
-import React, { FC, ReactNode } from 'react'
+import React, { ReactNode } from 'react'
 import Head from 'next/head'
 import Link from 'next/link'
 import Image from 'next/image'

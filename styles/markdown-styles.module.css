@@ -23,3 +23,11 @@
   .markdown a {
     @apply text-green-600
   }
+
+  .markdown ul {
+    margin-left: 0;
+    padding-left: 0;
+  }
+  .markdown ul li {
+    padding-left: 0;
+  }

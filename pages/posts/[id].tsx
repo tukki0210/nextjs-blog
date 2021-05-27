@@ -9,7 +9,6 @@ import Image from "next/image";
 import { InferGetStaticPropsType } from 'next';
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 
-type Props = InferGetStaticPropsType<typeof getStaticProps>;
 
 const renderers = {
   image: image => {

@@ -17,7 +17,7 @@ const Home = ({ allPostsData }) => {
         {/* 記事カード */}
         {allPostsData.map(({ id, title, date, image }) => (
           // 各記事の間隔
-          <div className={"mx-auto w-10/12 md:w-1/2 md:mx-0 lg:w-1/3"} key={id}>
+          <div className={"mx-auto w-11/12 md:w-1/2 lg:w-1/3"} key={id}>
             {/* 各記事カードのスタイル */}
             <div className={"mb-4 mx-2 overflow-hidden hover:opacity-80"} >
               <div className={"bg-yellow-100 "}>
@@ -26,8 +26,8 @@ const Home = ({ allPostsData }) => {
                     <Image
                       src={image}
                       alt={title}
-                      width={'450'}
-                      height={'300'}
+                      width={'775'}
+                      height={'450'}
                     />
                     {/* タイトルカード */}
                     <div className={"items-center h-12 leading-tight px-2"}>

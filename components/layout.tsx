@@ -39,26 +39,26 @@ const Layout = ({ children }: Props) => {
                     <h1 className={'text-white text-4xl  font-extrabold mt-0 pt-20'}>{siteTitle}</h1>
                 </Link>
             </header>
-            {/* lg(1024px)以上の画面サイズでflexboxに変更 */}
+            {/* xl(1280px)以上の画面サイズでflexboxに変更 */}
             <div className={'xl:container mx-auto my-10 xl:flex xl:justify-between'}>
                 <main className={'xl:w-10/12'}>{children}</main>
 
-                <aside className={' w-10/12 xl:w-2/12  md:w-1/2  px-2 mx-auto flex flex-col'}>
+                <aside className={'mx-auto my-2 w-10/12 xl:w-2/12  md:w-1/2 flex flex-col'}>
                     {/* プロフィールカード */}
                     <div className={"bg-yellow-100 overflow-hidden shadow"}>
-                        <Image className="container"
+                        <Image className=""
                             src="/images/components/ukimido.jpg"
                             alt="profileCard"
-                            width={'300'}
-                            height={'200'}
+                            width={'775'}
+                            height={'450'}
                         />
 
                         <div className="flex justify-center -mt-10">
                             <Image className={"rounded-full border-solid border-white border-2 -mt-3"}
                                 src="/images/components/tukki.jpg"
                                 alt="profileImage"
-                                width={'100'}
-                                height={'100'}
+                                width={'120'}
+                                height={'120'}
                             />
                         </div>
 

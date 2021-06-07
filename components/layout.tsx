@@ -43,7 +43,7 @@ const Layout = ({ children }: Props) => {
             <div className={'xl:container mx-auto my-10 xl:flex xl:justify-between'}>
                 <main className={'xl:w-10/12'}>{children}</main>
 
-                <aside className={'mx-auto my-2 w-10/12 xl:w-2/12  md:w-1/2 flex flex-col'}>
+                <aside className={'xl:mx-2 w-10/12 xl:w-2/12  md:w-1/2 flex flex-col'}>
                     {/* プロフィールカード */}
                     <div className={"bg-yellow-100 overflow-hidden shadow"}>
                         <Image className=""
@@ -70,7 +70,7 @@ const Layout = ({ children }: Props) => {
                     {/* プロフィールカード終わり */}
 
                     {/* カテゴリ */}
-                    <div className={"bg-yellow-100 mt-2 p-4 "}>
+                    <div className={"bg-yellow-100 mt-4 p-4 "}>
                         <h3 className="border-solid border-0 border-b-2 text-red-600 ">カテゴリー（未対応）</h3>
                         <h4>プログラミングの話</h4>
                         <ul>

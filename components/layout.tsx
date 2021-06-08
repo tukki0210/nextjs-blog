@@ -40,7 +40,7 @@ const Layout = ({ children }: Props) => {
                 </Link>
             </header>
             {/* xl(1280px)以上の画面サイズでflexboxに変更 */}
-            <div className={'xl:container mx-auto my-10 xl:flex xl:justify-between'}>
+            <div className={'xl:container mx-2 md:mx-auto  my-4 md:my-10  xl:flex xl:justify-between'}>
                 <main className={'xl:w-10/12'}>{children}</main>
 
                 <aside className={'xl:mx-2 w-10/12 xl:w-2/12  md:w-1/2 flex flex-col'}>

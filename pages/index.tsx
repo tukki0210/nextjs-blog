@@ -17,7 +17,7 @@ const Home = ({ allPostsData }) => {
         {/* 記事カード */}
         {allPostsData.map(({ id, title, date, image }) => (
           // 各記事の間隔
-          <div className={"mx-auto w-11/12 md:w-1/2 lg:w-1/3"} key={id}>
+          <div className={"mx-auto w-full md:w-1/2 lg:w-1/3"} key={id}>
             {/* 各記事カードのスタイル */}
             <div className={"mb-4 mx-2 overflow-hidden hover:opacity-80"} >
               <div className={"bg-yellow-100 "}>

@@ -36,14 +36,14 @@ const Layout = ({ children }: Props) => {
             </Head>
             <header className={"text-center"}>
                 <Link href="/">
-                    <h1 className={'text-white text-4xl  font-extrabold mt-0 pt-20'}>{siteTitle}</h1>
+                    <h1 className={'text-white text-4xl font-extrabold mt-0 pt-20'}>{siteTitle}</h1>
                 </Link>
             </header>
             {/* xl(1280px)以上の画面サイズでflexboxに変更 */}
             <div className={'xl:container mx-2 md:mx-auto  my-4 md:my-10  xl:flex xl:justify-between'}>
                 <main className={'xl:w-10/12'}>{children}</main>
 
-                <aside className={'xl:mx-2 w-10/12 xl:w-2/12  md:w-1/2 flex flex-col'}>
+                <aside className={'w-full md:w-1/2 xl:w-2/12 mx-2 mt-2 xl:mx-auto'}>
                     {/* プロフィールカード */}
                     <div className={"bg-yellow-100 overflow-hidden shadow"}>
                         <Image className=""

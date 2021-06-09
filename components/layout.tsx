@@ -1,4 +1,4 @@
-import React, { ReactNode } from 'react'
+import { FC, ReactNode, ReactElement } from 'react'
 import Head from 'next/head'
 import Link from 'next/link'
 import Image from 'next/image'
@@ -12,7 +12,7 @@ type Props = {
     children?: ReactNode
 }
 
-const Layout = ({ children }: Props) => {
+const Layout: FC = ({ children }: Props) => {
     return (
         <div>
             <Head>
@@ -43,7 +43,7 @@ const Layout = ({ children }: Props) => {
             <div className={'xl:container mx-2 md:mx-auto  my-4 md:my-10  xl:flex xl:justify-between'}>
                 <main className={'xl:w-10/12'}>{children}</main>
 
-                <aside className={'w-full md:w-1/2 xl:w-2/12 mx-2 mt-2 xl:mx-auto'}>
+                <aside className={'w-full md:w-1/2 xl:w-2/12 mx-2 xl:mx-auto'}>
                     {/* プロフィールカード */}
                     <div className={"bg-yellow-100 overflow-hidden shadow"}>
                         <Image className=""

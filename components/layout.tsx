@@ -45,7 +45,7 @@ const Layout: FC = ({ children }: Props) => {
 
                 <aside className={'w-full md:w-1/2 xl:w-2/12 mx-2 xl:mx-auto'}>
                     {/* プロフィールカード */}
-                    <div className={"bg-yellow-100 overflow-hidden shadow"}>
+                    <div className={"bg-yellow-100"}>
                         <Image className=""
                             src="/images/components/ukimido.jpg"
                             alt="profileCard"

@@ -9,7 +9,7 @@ import Layout, { siteTitle } from '../components/layout'
 import { getAllPostsData } from '../lib/posts'
 
 // getStaticPropsは事前にビルド時にサーバサイドで実行される
-// 静的なファイル（allPostsData）を生成する
+// 静的なファイル（allPostsData）を生成する 
 
 type Props = InferGetStaticPropsType<typeof getStaticProps>
 

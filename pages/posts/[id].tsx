@@ -1,4 +1,4 @@
-import { FC } from 'react'
+import React, { FC } from 'react'
 import Head from 'next/head'
 
 import ReactMarkdown from 'react-markdown';
@@ -11,10 +11,11 @@ import { getAllPostIds, getPostDataById } from '../../lib/posts'
 import Layout from '../../components/layout'
 
 
-const renderers = {
-  image: (image: { src: string; alt: string | undefined; }) => <Image src={image.src} alt={image.alt} width="600" height="450" />,
-  code: ({ language, value }) => <SyntaxHighlighter language={language} children={value} />
-}
+
+const ImageInMarkDown = ({ src, alt }: { src: string; alt: string }) => <Image src={src} alt={alt} width="600" height="450" />
+
+const CodeBlock = ({ language, value }: { language: string, value: string }) => <SyntaxHighlighter language={language}>{value}</SyntaxHighlighter>
+
 
 // getStaticPropsはサーバサイドで実行される
 // 静的なファイルを事前にビルドする
@@ -39,7 +40,7 @@ export const getStaticProps = async ({ params }: GetStaticPropsContext): Promise
   // Fetch necessary data for the blog post using params.id
   // params.id はファイル名の[id].tsx に対応する
   const postData = await getPostDataById(params?.id as string)
-  
+
 
   return Promise.resolve({
     props: {
@@ -73,10 +74,9 @@ const Post: FC<Props> = ({ postData }) => (
       </div>
       <ReactMarkdown
         className={markdownStyles.markdown}
-        // eslint-disable-next-line react/no-children-prop
-        children={postData.content}
+        source={postData.content}
         allowDangerousHtml
-        renderers={renderers}
+        renderers={{ code: CodeBlock, image: ImageInMarkDown }}
       />
     </article>
   </Layout>

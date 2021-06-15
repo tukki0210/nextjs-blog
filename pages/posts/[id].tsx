@@ -12,7 +12,7 @@ import Layout from '../../components/layout'
 
 
 const renderers = {
-  image: image => <Image src={image.src} alt={image.alt} width="600" height="450" />,
+  image: (image: { src: string; alt: string | undefined; }) => <Image src={image.src} alt={image.alt} width="600" height="450" />,
   code: ({ language, value }) => <SyntaxHighlighter language={language} children={value} />
 }
 

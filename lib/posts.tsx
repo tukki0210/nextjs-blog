@@ -17,56 +17,55 @@ type PostData = {
 // .mdファイル以外を除外する
 const fileNames = fs.readdirSync(postsDirectory).filter(fileName => fileName.includes('md'))
 
-// type matterFileContents = {
-//     data: { [key: string]: PostData; }
-//     content: string
-// }
-
 const getMatterFileContents = (id: string): GrayMatterFile<Input> => {
-    // マークダウンファイルのフルぱす
+    // マークダウンファイルのフルパス
     const fullPath = path.join(postsDirectory, `${id}.md`)
     const fileContents = fs.readFileSync(fullPath, 'utf8')
-    //use gray-matter to parse the post metadata section
+
+    // use gray-matter to parse the post metadata section
     return matter(fileContents)
 }
 
 const getPostDataByFileName = (fileName: string): PostData => {
     const id = fileName.replace(/\.md$/, '')
     const matterResult: GrayMatterFile<Input> = getMatterFileContents(id)
-    const data = matterResult.data;
-    const title = data.title;
-    const date = data.date;
-    const image = data.image;
-    const content = matterResult.content;
+    type dataType = {
+        title: string,
+        date: Date,
+        image: string,
+    }
+    const { data } = matterResult
+    const { title, date, image } = data as dataType;
+    const { content } = matterResult;
+
     return {
         id,
         title,
         date,
         image,
-        content,
-    }
-}
+        content
+    };
+};
 
-export const getAllPostsData = async () => {
-    //Get file names under /posts
+export const getPostDataById = (id: string): Promise<PostData> => Promise.resolve(getPostDataByFileName(`${id}.md`))
+
+// PostData[]の入ったPromiseオブジェクトを生成
+export const getAllPostsData = (): Promise<PostData[]> => {
+    // Get file names under /posts
     const allPostsData = fileNames.map(
         (fileName: string) => getPostDataByFileName(fileName)
     )
+
     // 日付順にソート
-    return allPostsData.sort((a: PostData, b: PostData) => a.date < b.date ? 1 : -1)
+    return Promise.resolve(allPostsData.sort((a: PostData, b: PostData) => a.date < b.date ? 1 : -1));
 }
 
-export const getAllPostIds = async () => (
+export const getAllPostIds = (): Promise<{ params: { id: string } }[]> => (
     // const fileNames = fs.readdirSync(postsDirectory)
-    fileNames.map(fileName => {
-        return {
-            params: {
-                id: fileName.replace(/\.md$/, '')
-            }
+    Promise.resolve(fileNames.map(fileName => ({
+        params: {
+            id: fileName.replace(/\.md$/, '')
         }
-    })
-)
-
-export const getPostDataById = async (id: string) => (
-    getPostDataByFileName(`${id}.md`)
+    }))
+    )
 )

@@ -3,9 +3,7 @@ import '../styles/normalize.css'
 import React from 'react'
 import { AppProps } from 'next/app'
 
-const App = ({ Component, pageProps }: AppProps) => {
-    return <Component {...pageProps} />
-}
+const App = ({ Component, pageProps }: AppProps) => <Component {...pageProps} />
 
 // export const config = { amp:true }
 

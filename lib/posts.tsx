@@ -28,7 +28,7 @@ const getMatterFileContents = (id: string): GrayMatterFile<Input> => {
 
 const getPostDataByFileName = (fileName: string): PostData => {
     const id = fileName.replace(/\.md$/, '')
-    const matterResult: GrayMatterFile<Input> = getMatterFileContents(id)
+    const matterResult = getMatterFileContents(id)
     type dataType = {
         title: string,
         date: Date,

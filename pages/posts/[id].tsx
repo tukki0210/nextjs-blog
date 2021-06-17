@@ -11,11 +11,9 @@ import { getAllPostIds, getPostDataById } from '../../lib/posts'
 import Layout from '../../components/layout'
 
 
-
 const ImageInMarkDown = ({ src, alt }: { src: string; alt: string }) => <Image src={src} alt={alt} width="600" height="450" />
 
 const CodeBlock = ({ language, value }: { language: string, value: string }) => <SyntaxHighlighter language={language}>{value}</SyntaxHighlighter>
-
 
 // getStaticPropsはサーバサイドで実行される
 // 静的なファイルを事前にビルドする
@@ -41,13 +39,12 @@ export const getStaticProps = async ({ params }: GetStaticPropsContext): Promise
   // params.id はファイル名の[id].tsx に対応する
   const postData = await getPostDataById(params?.id as string)
 
-
-  return Promise.resolve({
+  return {
     props: {
       // ページコンポーネントにpropsとして渡される
       postData
     }
-  });
+  };
 };
 
 // サーバー側でビルド時のみ実行

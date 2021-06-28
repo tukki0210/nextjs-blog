@@ -41,7 +41,7 @@ const Home: FC<Props> = ({ allPostsData }) => (
     <Head>
       <title>{siteTitle}</title>
     </Head>
-    <div className="flex flex-wrap">
+    <div className="flex flex-wrap mx-4">
       {/* 記事カード */}
       {allPostsData.map(({ id, title, date, image }) => (
         // 各記事の間隔

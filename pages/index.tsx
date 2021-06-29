@@ -37,7 +37,7 @@ export const getStaticProps = async (): Promise<{ props: { allPostsData: PostDat
 
 // allPostsDataはビルド時にgetStaticProps()によって生成される。
 const Home: FC<Props> = ({ allPostsData }) => (
-  <Layout>
+  <Layout pagetitle="トップページ">
     <Head>
       <title>{siteTitle}</title>
     </Head>

@@ -9,20 +9,20 @@ export const siteTitle = "理系公務員のプログラミング日記"
 export const subTitle = "python趣味レベルの理系公務員 → 職業訓練校のIT指導員。このブログはTypeScript + Next.js + TailWind CSS + Vercelで構成してます。（一部未完成）"
 
 type Props = {
+    pagetitle: string;
     children?: ReactNode
 }
 
-const Layout: FC<Props> = ({ children }) => (
-    <div>
+const Layout: FC<Props> = ({ pagetitle, children }) => (
+    <>
         <Head>
             <meta charSet="utf-8" />
             <meta name="viewport" content="initial-scale=1.0, width=device-width" />
-            <meta property="og:title" content={siteTitle} />
+            <meta property="og:title" content={pagetitle} />
             {/* <meta property="og:description" content={description} /> */}
             {/* <meta name="keywords" content={keyword} /> */}
             <meta property="og:type" content="blog" />
             {/* <meta property="og:url" content={url} /> */}
-            {/* <meta property="og:image" content={image} /> */}
             <meta property="og:site_name" content={siteTitle} />
             <meta name="twitter:card" content="summary" />
             <meta name="twitter:site" content="@tcr_jp" />
@@ -89,7 +89,7 @@ const Layout: FC<Props> = ({ children }) => (
                 {/* カテゴリ終わり */}
             </aside>
         </div>
-    </div>
+    </>
 )
 
 export default Layout;

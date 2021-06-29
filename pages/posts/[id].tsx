@@ -10,7 +10,7 @@ import DateComponent from '../../components/date'
 import { getAllPostIds, getPostDataById } from '../../lib/posts'
 import Layout from '../../components/layout'
 
-
+ 
 const ImageInMarkDown = ({ src, alt }: { src: string; alt: string }) => <Image src={src} alt={alt} width="600" height="450" />
 
 const CodeBlock = ({ language, value }: { language: string, value: string }) => <SyntaxHighlighter language={language}>{value}</SyntaxHighlighter>
@@ -60,7 +60,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
 }
 
 const Post: FC<Props> = ({ postData }) => (
-  <Layout>
+  <Layout pagetitle={postData.title}>
     <Head>
       <title>{postData.title}</title>
     </Head>

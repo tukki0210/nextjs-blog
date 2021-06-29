@@ -11,6 +11,7 @@ type PostData = {
     title: string,
     date: Date,
     image: string,
+    metaDescription: string,
     content: string
 };
 
@@ -33,9 +34,10 @@ const getPostDataByFileName = (fileName: string): PostData => {
         title: string,
         date: Date,
         image: string,
+        metaDescription: string,
     }
     const { data } = matterResult
-    const { title, date, image } = data as dataType;
+    const { title, date, image, metaDescription } = data as dataType;
     const { content } = matterResult;
 
     return {
@@ -43,6 +45,7 @@ const getPostDataByFileName = (fileName: string): PostData => {
         title,
         date,
         image,
+        metaDescription,
         content
     };
 };

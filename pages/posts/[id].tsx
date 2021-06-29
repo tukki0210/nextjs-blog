@@ -30,6 +30,7 @@ type PostData = {
   title: string,
   date: Date,
   image: string,
+  metaDescription: string,
   content: string
 };
 
@@ -60,7 +61,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
 }
 
 const Post: FC<Props> = ({ postData }) => (
-  <Layout pagetitle={postData.title}>
+  <Layout pagetitle={postData.title} metaDescription={postData.metaDescription}>
     <Head>
       <title>{postData.title}</title>
     </Head>

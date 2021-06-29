@@ -10,10 +10,11 @@ export const subTitle = "python趣味レベルの理系公務員 → 職業訓�
 
 type Props = {
     pagetitle: string;
+    metaDescription: string;
     children?: ReactNode
 }
 
-const Layout: FC<Props> = ({ pagetitle, children }) => (
+const Layout: FC<Props> = ({ pagetitle, metaDescription,children }) => (
     <>
         <Head>
             <meta charSet="utf-8" />
@@ -22,6 +23,7 @@ const Layout: FC<Props> = ({ pagetitle, children }) => (
             {/* <meta property="og:description" content={description} /> */}
             {/* <meta name="keywords" content={keyword} /> */}
             <meta property="og:type" content="blog" />
+            <meta property="og:description" content={metaDescription} />
             {/* <meta property="og:url" content={url} /> */}
             <meta property="og:site_name" content={siteTitle} />
             <meta name="twitter:card" content="summary" />

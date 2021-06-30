@@ -31,6 +31,7 @@ type PostData = {
   date: Date,
   image: string,
   metaDescription: string,
+  tags: Array<string>,
   content: string
 };
 

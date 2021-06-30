@@ -21,6 +21,7 @@ type PostData = {
   date: Date,
   image: string,
   metaDescription: string,
+  tags: Array<string>,
   content?: string
 };
 
@@ -37,13 +38,13 @@ export const getStaticProps = async (): Promise<{ props: { allPostsData: PostDat
 
 // allPostsDataはビルド時にgetStaticProps()によって生成される。
 const Home: FC<Props> = ({ allPostsData }) => (
-  <Layout pagetitle="トップページ" metaDescription="理系公務員のプログラミング日記">
+  <Layout pagetitle="" metaDescription="理系公務員のプログラミング日記">
     <Head>
       <title>{siteTitle}</title>
     </Head>
     <div className="flex flex-wrap mx-4">
       {/* 記事カード */}
-      {allPostsData.map(({ id, title, date, image }) => (
+      {allPostsData.map(({ id, title, date, image, metaDescription, tags }) => (
         // 各記事の間隔
         <div className="mx-auto w-full md:w-1/2 lg:w-1/3" key={id}>
           {/* 各記事カードのスタイル */}
@@ -64,6 +65,8 @@ const Home: FC<Props> = ({ allPostsData }) => (
                   <div className="text-gray-900 flex flex-row-reverse px-4 pb-1">
                     <DateComponent dateString={date} />
                   </div>
+                  <p>{tags}</p>
+                  <p>{metaDescription}</p>
                   {/* タイトルカード終わり */}
                 </div>
               </Link>

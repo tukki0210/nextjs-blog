@@ -13,7 +13,7 @@ import { getAllPostsData } from '../lib/posts'
 
 type Props = InferGetStaticPropsType<typeof getStaticProps>
 
-type Date = `${number}-${number}-${number}`
+type Date = `${number}-${number}-${number}`;
 
 type PostData = {
   id: string,
@@ -26,7 +26,8 @@ type PostData = {
 };
 
 export const getStaticProps = async (): Promise<{ props: { allPostsData: PostData[]; }; }> => {
-  const allPostsData = await getAllPostsData()
+  const allPostsData = await getAllPostsData();
+
 
   return {
     props: {
@@ -44,7 +45,7 @@ const Home: FC<Props> = ({ allPostsData }) => (
     </Head>
     <div className="flex flex-wrap mx-4">
       {/* 記事カード */}
-      {allPostsData.map(({ id, title, date, image, metaDescription, tags }) => (
+      {allPostsData.map(({ id, title, date, image }) => (
         // 各記事の間隔
         <div className="mx-auto w-full md:w-1/2 lg:w-1/3" key={id}>
           {/* 各記事カードのスタイル */}
@@ -65,8 +66,6 @@ const Home: FC<Props> = ({ allPostsData }) => (
                   <div className="text-gray-900 flex flex-row-reverse px-4 pb-1">
                     <DateComponent dateString={date} />
                   </div>
-                  <p>{tags}</p>
-                  <p>{metaDescription}</p>
                   {/* タイトルカード終わり */}
                 </div>
               </Link>

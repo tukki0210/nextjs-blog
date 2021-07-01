@@ -72,7 +72,8 @@ const Post: FC<Props> = ({ postData }) => (
       <div className="text-gray-900 flex flex-row-reverse px-2  ">
         <DateComponent dateString={postData.date} />
       </div>
-      </div>
+      <p>タグ：{postData.tags.map(tag => <div>{tag}</div>)}</p>
+      </div> 
       <ReactMarkdown
         className={markdownStyles.markdown}
         source={postData.content}

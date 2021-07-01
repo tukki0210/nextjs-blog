@@ -38,7 +38,8 @@ const getPostDataByFileName = (fileName: string): PostData => {
         metaDescription: string,
         tags: Array<string>,
     }
-    const { data } = matterResult
+    
+    const { data } = matterResult;
     const { title, date, image, metaDescription, tags } = data as dataType;
     const { content } = matterResult;
 

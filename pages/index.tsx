@@ -28,7 +28,6 @@ type PostData = {
 export const getStaticProps = async (): Promise<{ props: { allPostsData: PostData[]; }; }> => {
   const allPostsData = await getAllPostsData();
 
-
   return {
     props: {
       // ページコンポーネントにpropsとして渡される

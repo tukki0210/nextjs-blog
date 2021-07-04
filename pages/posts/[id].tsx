@@ -10,7 +10,7 @@ import DateComponent from '../../components/date'
 import { getAllPostIds, getPostDataById } from '../../lib/posts'
 import Layout from '../../components/layout'
 
- 
+
 const ImageInMarkDown = ({ src, alt }: { src: string; alt: string }) => <Image src={src} alt={alt} width="600" height="450" />
 
 const CodeBlock = ({ language, value }: { language: string, value: string }) => <SyntaxHighlighter language={language}>{value}</SyntaxHighlighter>
@@ -68,12 +68,13 @@ const Post: FC<Props> = ({ postData }) => (
     </Head>
     <article className="bg-yellow-100 mx-2 md:mx-4 p-4 md:p-10 ">
       <div className="p-2 text-xl leading-normal border-solid border-0 border-l-8 border-red-600">
-      <h2>{postData.title}</h2>
-      <div className="text-gray-900 flex flex-row-reverse px-2  ">
-        <DateComponent dateString={postData.date} />
+        <h2>{postData.title}</h2>
+        <div className="text-gray-900 flex flex-row-reverse px-2  ">
+          <DateComponent dateString={postData.date} />
+        </div>
+        <div className="flex m-2 text-lg">タグ：{postData.tags.map(
+          tag => <div className="px-2 mx-2 bg-yellow-50 border-solid border-1 border-gray-300 rounded-2xl">{tag}</div>)}</div>
       </div>
-      <p>タグ：{postData.tags.map(tag => <div>{tag}</div>)}</p>
-      </div> 
       <ReactMarkdown
         className={markdownStyles.markdown}
         source={postData.content}

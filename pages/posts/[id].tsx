@@ -67,7 +67,7 @@ const Post: FC<Props> = ({ postData }) => (
       <title>{postData.title}</title>
     </Head>
     <article className="bg-yellow-100 mx-2 md:mx-4 p-4 md:p-10 ">
-      <div className="p-2 text-xl leading-normal border-solid border-0 border-l-8 border-red-600">
+      <div className="px-4 text-xl leading-normal border-solid border-0 border-l-8 border-red-600">
         <h2>{postData.title}</h2>
         <div className="text-gray-900 flex flex-row-reverse px-2  ">
           <DateComponent dateString={postData.date} />

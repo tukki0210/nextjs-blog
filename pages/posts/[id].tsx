@@ -67,13 +67,13 @@ const Post: FC<Props> = ({ postData }) => (
       <title>{postData.title}</title>
     </Head>
     <article className="bg-yellow-100 mx-2 md:mx-4 p-4 md:p-10 ">
-      <div className="px-4 text-xl leading-normal border-solid border-0 border-l-8 border-red-600">
-        <h2>{postData.title}</h2>
+      <div className="mb-10 px-4 text-xl leading-normal border-solid border-0 border-l-8 border-red-600">
+        <h2 className="mb-14">{postData.title}</h2>
         <div className="text-gray-900 flex flex-row-reverse px-2  ">
           <DateComponent dateString={postData.date} />
         </div>
-        <div className="flex m-2 text-lg">タグ：{postData.tags.map(
-          tag => <div className="px-2 mx-2 bg-yellow-50 border-solid border-1 border-gray-300 rounded-2xl">{tag}</div>)}</div>
+        <div className="flex -mt-10 text-lg">タグ：{postData.tags.map(
+          tag => <div key={tag} className="px-2 mx-2 bg-yellow-50 border-solid border-1 border-gray-300 rounded-2xl">{tag}</div>)}</div>
       </div>
       <ReactMarkdown
         className={markdownStyles.markdown}

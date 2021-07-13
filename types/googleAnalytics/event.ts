@@ -4,7 +4,7 @@ type ContactEvent = {
     label: string
   }
   
-type ClickEvent = {
+  type ClickEvent = {
     action: 'click'
     category: 'other'
     label: string

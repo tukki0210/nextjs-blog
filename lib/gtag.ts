@@ -1,3 +1,5 @@
+import { Event } from '../types/googleAnalytics/event'
+
 /* eslint-disable @typescript-eslint/explicit-module-boundary-types */
 /* eslint-disable @typescript-eslint/no-unsafe-assignment */
 /* eslint-disable @typescript-eslint/no-unsafe-call */
@@ -14,14 +16,14 @@ export const pageview = (path:string) => {
 }
 
 // GAイベントを発火させる
-export const event = ({ action, category, label, value = '' }) => {
+
+export const event = ({action, category, label}: Event) => {
   if (!existsGaId) {
     return
   }
 
   window.gtag('event', action, {
     event_category: category,
-    event_label: JSON.stringify(label),
-    value,
+    event_label: JSON.stringify(label)
   })
 }

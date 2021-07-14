@@ -5,17 +5,12 @@ import * as gtag from "../lib/gtag";
 
 const usePageView = () => {
   const router = useRouter();
-  console.log(gtag.GA_ID);
   
   useEffect(() => {
-    if (!gtag.existsGaId) {
-      return;
-    }
+    if (!gtag.existsGaId) return;
 
-    const handleRouteChange = (path, { shallow }) => {
-      if (!shallow) {
+    const handleRouteChange = (path: string) => {
         gtag.pageview(path);
-      }
     };
 
     router.events.on("routerChangeComplete", handleRouteChange);

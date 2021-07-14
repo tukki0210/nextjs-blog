@@ -16,7 +16,7 @@ export const pageview = (path:string) => {
 }
 
 // GAイベントを発火させる
-
+// GAのgtag関数をラップしている
 export const event = ({action, category, label}: Event) => {
   if (!existsGaId) {
     return

@@ -1,6 +1,7 @@
 /// <reference types="next" />
 /// <reference types="next/types/global" />
 
+//windowオブジェクトにgtagを追加している
 interface Window  {
   // pageviewのため
   gtag(type: 'config', googleAnalyticsId: string, { page_path: string })

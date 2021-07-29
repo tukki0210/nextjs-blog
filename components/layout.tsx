@@ -6,7 +6,7 @@ import Image from 'next/image'
 
 const name = 'つっきー'
 export const siteTitle = "理系公務員のプログラミング日記"
-export const subTitle = "職業訓練校でプログラミング教えてる理系公務員です。このブログはTypeScript + Next.js + TailWind CSS + Vercelで構成してます。（一部未完成）"
+export const subTitle = "職業訓練校でプログラミング教えている公務員です。このブログはTypeScript + Next.js + TailWind CSS + Vercelで構成してます。（一部未完成）"
 
 type Props = {
     pagetitle?: string;

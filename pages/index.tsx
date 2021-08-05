@@ -48,8 +48,8 @@ const Home: FC<Props> = ({ allPostsData }) => (
         // 各記事の間隔
         <div className="mx-auto w-full md:w-1/2 lg:w-1/3" key={id}>
           {/* 各記事カードのスタイル */}
-          <div className="mb-4 mx-2 overflow-hidden hover:opacity-80" >
-            <div className="bg-yellow-100 ">
+          <div className="mb-4 mx-2 overflow-hidden hover:opacity-80 " >
+            <div className="bg-white ">
               <Link href={`/posts/${id}`}>
                 <div className="items-center ">
                   <Image
@@ -59,10 +59,10 @@ const Home: FC<Props> = ({ allPostsData }) => (
                     height="450"
                   />
                   {/* タイトルカード */}
-                  <div className="items-center h-12 leading-tight px-2">
+                  <div className="items-center h-12 leading-tight px-2 text-gray-600 border-gray-200 border-0 border-solid border-t-2 -mt-3">
                     <p>{title}</p>
                   </div>
-                  <div className="text-gray-900 flex flex-row-reverse px-4 pb-1">
+                  <div className="text-gray-600 flex flex-row-reverse px-4 pb-1">
                     <DateComponent dateString={date} />
                   </div>
                   {/* タイトルカード終わり */}

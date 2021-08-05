@@ -37,7 +37,7 @@ const Layout: FC<Props> = ({ pagetitle, metaDescription, children }) => (
         </Head>
         <header className="text-center">
             <Link href="/">
-                <h1 className="text-white text-4xl font-extrabold mt-0 pt-20">{siteTitle}</h1>
+                <h1 className="text-white text-3xl mt-0 pt-4">{siteTitle}</h1>
             </Link>
         </header>
         {/* xl(1280px)以上の画面サイズでflexboxに変更 */}
@@ -46,7 +46,7 @@ const Layout: FC<Props> = ({ pagetitle, metaDescription, children }) => (
 
             <aside className="w-full md:w-1/2 xl:w-2/12 mx-2 xl:mx-auto">
                 {/* プロフィールカード */}
-                <div className="bg-yellow-100">
+                <div className="bg-white">
                     <Image className=""
                         src="/images/components/ukimido.jpg"
                         alt="profileCard"
@@ -55,7 +55,7 @@ const Layout: FC<Props> = ({ pagetitle, metaDescription, children }) => (
                     />
 
                     <div className="flex justify-center -mt-10">
-                        <Image className="rounded-full border-solid border-white border-2 -mt-3"
+                        <Image className="rounded-full -mt-3"
                             src="/images/components/tukki.jpg"
                             alt="profileImage"
                             width="120"
@@ -64,15 +64,15 @@ const Layout: FC<Props> = ({ pagetitle, metaDescription, children }) => (
                     </div>
 
                     <div className="text-center px-3 pb-6 pt-2">
-                        <h2 className="text-black text-lg bold ">{name}</h2>
-                        <p className="text-black mt-2  font-light text-grey-dark">{subTitle}</p>
+                        <h2 className="text-gray-600 text-lg bold ">{name}</h2>
+                        <p className="text-gray-600 mt-2  font-light text-grey-dark">{subTitle}</p>
                     </div>
                 </div>
                 {/* プロフィールカード終わり */}
 
                 {/* カテゴリ */}
-                <div className="bg-yellow-100 mt-4 p-4 ">
-                    <h3 className="border-solid border-0 border-b-2 text-red-600 ">カテゴリー（未対応）</h3>
+                {/* <div className="text-gray-600 bg-white mt-4 p-4 ">
+                    <h3 className="border-solid border-0 border-b-2 ">カテゴリー（未対応）</h3>
                     <h4>プログラミングの話</h4>
                     <ul>
                         <li>
@@ -87,7 +87,7 @@ const Layout: FC<Props> = ({ pagetitle, metaDescription, children }) => (
                     <ul>
                         <li><a href="/">ビジネス書</a></li>
                     </ul>
-                </div>
+                </div> */}
                 {/* カテゴリ終わり */}
             </aside>
         </div>

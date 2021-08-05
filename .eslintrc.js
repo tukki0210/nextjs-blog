@@ -4,7 +4,6 @@ module.exports = {
     es2021: true,
   },
   extends: [
-    'plugin:react/recommended',
     'airbnb',
     'airbnb/hooks',
     'plugin:import/errors',
@@ -25,9 +24,13 @@ module.exports = {
     tsconfigRootDir: __dirname,
   },
   plugins: [
-    'react',
     '@typescript-eslint',
+    'import',
+    'jsx-a11y',
+    'react',
+    'react-hooks',
   ],
+  root:true,
   rules: {
     // occur error in `import React from 'react'` with react-scripts 4.0.1
     'no-use-before-define': 'off',

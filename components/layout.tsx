@@ -14,7 +14,7 @@ type Props = {
     children?: ReactNode
 }
 
-const Layout: FC<Props> = ({ pagetitle, metaDescription,children }) => (
+const Layout: FC<Props> = ({ pagetitle, metaDescription, children }) => (
     <>
         <Head>
             <meta charSet="utf-8" />

@@ -13,7 +13,7 @@ body {
     font-size: 18px;
     max-width: 100%;
     /* 木目調のCSS */
-    background-color: rgb(197, 230, 246);
+    background-color: rgba(208, 228, 250, 0.753);
     /* linear-gradient(
       90deg,
       rgba(208, 147, 82, 0.6),

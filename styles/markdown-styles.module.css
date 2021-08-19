@@ -1,5 +1,5 @@
 .markdown {
-    @apply text-lg leading-7;
+    @apply text-lg leading-7 text-gray-600;
   }
   
   .markdown p,
@@ -10,15 +10,15 @@
   }
   
   .markdown h2 {
-    @apply text-3xl mt-12 mb-4 leading-snug border-solid border-0 border-b-2 border-blue-600;
+    @apply text-3xl mt-12 mb-4 leading-snug border-solid border-0 border-b-4 border-blue-600;
   }
   
   .markdown h3 {
-    @apply text-2xl mt-8 mb-4 leading-snug border-solid border-0 border-b-2 border-blue-400;
+    @apply text-2xl mt-8 mb-4 leading-snug border-solid border-0 border-b-4 border-blue-600;
   }
 
   .markdown h4 {
-    @apply text-xl mt-4 mb-4 leading-snug  border-solid border-0 border-b-2 border-blue-300;
+    @apply text-xl mt-4 w-1/2 mb-4 leading-snug  border-dotted border-0 border-b-2 border-blue-600;
   }
 
   .markdown red {

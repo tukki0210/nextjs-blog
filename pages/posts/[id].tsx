@@ -76,6 +76,7 @@ const Post: FC<Props> = ({ postData }) => (
           tag => <div key={tag} className="px-2 mx-2 bg-white border-solid border-1 border-blue-600 rounded-2xl">{tag}</div>)}</div>
       </div>
       <ReactMarkdown
+        // eslint-disable-next-line
         className={markdownStyles.markdown}
         source={postData.content}
         allowDangerousHtml

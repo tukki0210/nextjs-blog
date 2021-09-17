@@ -24,6 +24,9 @@
   .markdown red {
     @apply text-red-500
   }
+  .markdown blue {
+    @apply text-blue-500
+  }
   .markdown a {
     @apply text-green-600
   }

@@ -72,8 +72,9 @@ const Post: FC<Props> = ({ postData }) => (
         <div className="text-gray-900 flex flex-row-reverse px-2  ">
           <DateComponent dateString={postData.date} />
         </div>
-        <div className="flex -mt-10 text-lg">タグ：{postData.tags.map(
-          tag => <div key={tag} className="px-2 mx-2 bg-white border-solid border-1 border-blue-600 rounded-2xl">{tag}</div>)}</div>
+        <div className="flex -mt-10 text-lg">タグ：{postData.tags.map(tag => 
+          <div key={tag} className="px-2 mx-2 bg-white border-solid border-1 border-blue-600 rounded-2xl">{tag}</div>)}
+        </div>
       </div>
       <ReactMarkdown
         // eslint-disable-next-line

@@ -31,6 +31,10 @@
     @apply text-green-600
   }
 
+  .markdown bold {
+    @apply text-xl font-bold
+  }
+
   .markdown ul {
     margin-left: 0;
     padding-left: 0;

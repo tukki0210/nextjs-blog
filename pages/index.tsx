@@ -42,7 +42,7 @@ export const getStaticProps = async (): Promise<{ props: { allPostsData: PostDat
 // allPostsDataはビルド時にgetStaticProps()によって生成される。
 const Home: FC<Props> = ({ allPostsData }) => (
   <Layout pagetitle="" metaDescription="理系公務員のプログラミング日記">
-    <div className="xl:container mx-2 md:mx-auto  my-4 md:my-10  xl:flex xl:justify-between">
+    <div className="xl:container mx-2   my-4 md:my-10  xl:flex xl:justify-between">
       <main className="flex flex-wrap xl:w-10/12 mx-4">
         {/* 記事カード */}
         {allPostsData.map(({ id, title, date, image }) => (

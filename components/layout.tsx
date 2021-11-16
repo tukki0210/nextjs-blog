@@ -38,7 +38,7 @@ const Layout: FC<Props> = ({ pagetitle, metaDescription, children }) => (
             </Link>
         </header>
         {/* xl(1280px)以上の画面サイズでflexboxに変更 */}
-        <div>
+        <div className="md:mx-auto xl:w-10/12">
             {children}
         </div>
     </>

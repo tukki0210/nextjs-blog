@@ -13,7 +13,7 @@ body {
     font-size: 18px;
     max-width: 100%;
     /* 木目調のCSS */
-    background-color: rgba(208, 228, 250, 0.753);
+    background-color: rgba(231, 241, 251, 0.924);
     /* linear-gradient(
       90deg,
       rgba(208, 147, 82, 0.6),
@@ -52,7 +52,7 @@ a:hover {
 }
 
 header {
-    background-color:rgba(0, 104, 183, 1);
+    background-color:rgb(18, 128, 179);
     width: 100%;
     height: 10vh;
 }

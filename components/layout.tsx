@@ -3,7 +3,7 @@ import Head from 'next/head'
 import Link from 'next/link'
 
 export const siteTitle = "理系公務員のプログラミング日記"
-export const subTitle = "職業訓練校でプログラミング教えている公務員です。自分の勉強内容の振り返りと授業で出した課題の解説記事が中心です。このブログはTypeScript + Next.js + TailWind CSS + Vercelで構成してます。（一部未完成）"
+export const subTitle = "職業訓練校でプログラミングの指導員をしてます。自分の勉強内容メモと授業で出した課題の解説が中心です。このブログはTypeScript + Next.js + TailWind CSS + Vercelで構成してます。（一部未完成）"
 
 type Props = {
     pagetitle?: string;
@@ -12,7 +12,7 @@ type Props = {
 }
 
 const Layout: FC<Props> = ({ pagetitle, metaDescription, children }) => (
-    <>
+    <> 
         <Head>
             <meta charSet="utf-8" />
             <meta name="viewport" content="initial-scale=1.0, width=device-width" />

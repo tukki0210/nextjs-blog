@@ -22,10 +22,10 @@
   }
 
   .markdown red {
-    @apply text-red-500
+    background: linear-gradient(transparent 80%, #fda3bb 60%)
   }
   .markdown blue {
-    @apply text-blue-500
+    background: linear-gradient(transparent 80%, #66ccff 60%);
   }
   .markdown a {
     @apply text-green-600

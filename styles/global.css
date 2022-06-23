@@ -14,19 +14,6 @@ body {
     max-width: 100%;
     /* 木目調のCSS */
     background-color: rgba(231, 241, 251, 0.924);
-    /* linear-gradient(
-      90deg,
-      rgba(208, 147, 82, 0.6),
-      rgba(192, 134, 70, 0.6) 60%,
-      rgba(208, 147, 82, 0.6)
-    ),
-    repeating-radial-gradient(
-      ellipse at 60% 500%,
-      #c08646,
-      #c08646 0.2%,
-      #d09352 0.6%,
-      #d09352 1%
-    ); */
 }
 
 * {

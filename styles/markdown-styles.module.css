@@ -8,17 +8,53 @@
   .markdown blockquote {
     @apply my-6;
   }
-  
+
   .markdown h2 {
-    @apply text-3xl my-12 mb-4 leading-snug border-solid border-0 border-b-4 border-blue-600;
+    position: relative;
+    padding: 1rem .5rem;
+  }
+  
+  .markdown h2:after {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 6px;
+    content: '';
+    border-radius: 3px;
+    background-image: linear-gradient(to right, #0050fd 30%, #60fdf2 100%);
   }
   
   .markdown h3 {
-    @apply text-2xl my-8 mb-4 leading-snug border-solid border-0 border-b-4 border-blue-600;
+    position: relative;
+    padding: 1rem .5rem;
+  }
+  
+  .markdown h3:after {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    content: '';
+    border-radius: 2px;
+    background-image: linear-gradient(to right, #0050fd 30%, #60fdf2 100%);
   }
 
   .markdown h4 {
-    @apply text-xl my-4 mb-4 leading-snug border-solid border-0 border-b-2 border-blue-600;
+    position: relative;
+    padding: 1rem .5rem;
+  }
+  
+  .markdown h4:after {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    content: '';
+    border-radius: 2px;
+    background-image: linear-gradient(to right, #0050fd 30%, #60fdf2 100%);
   }
 
   .markdown red {

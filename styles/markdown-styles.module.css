@@ -60,9 +60,15 @@
   .markdown red {
     background: linear-gradient(transparent 80%, #fda3bb 60%)
   }
+
+  .markdown yellow {
+    background: linear-gradient(transparent 80%, #f7f746 60%)
+  }
+
   .markdown blue {
     background: linear-gradient(transparent 80%, #66ccff 60%);
   }
+  
   .markdown a {
     @apply text-green-600
   }

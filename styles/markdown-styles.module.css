@@ -27,7 +27,7 @@
   
   .markdown h3 {
     position: relative;
-    padding: 1rem .5rem;
+    padding: .5rem .5rem;
   }
   
   .markdown h3:after {
@@ -43,7 +43,7 @@
 
   .markdown h4 {
     position: relative;
-    padding: 1rem .5rem;
+    padding: .3rem .5rem;
   }
   
   .markdown h4:after {
@@ -58,11 +58,11 @@
   }
 
   .markdown red {
-    background: linear-gradient(transparent 80%, #fda3bb 60%)
+    background: linear-gradient(transparent 80%, #fda3bb 60%);
   }
 
   .markdown yellow {
-    background: linear-gradient(transparent 80%, #f7f746 60%)
+    background: linear-gradient(transparent 80%, #f7f746 60%);
   }
 
   .markdown blue {

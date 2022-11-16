@@ -14,11 +14,11 @@ const usePageView = () => {
       gtag.pageview(path);
     };
 
-    router.events.on("routerChangeComplete", handleRouteChange);
+    router.events.on("routeChangeComplete", handleRouteChange);
 
     // eslint-disable-next-line consistent-return
     return () => {
-      router.events.off("routerChangeComplete", handleRouteChange);
+      router.events.off("routeChangeComplete", handleRouteChange);
     };
   }, [router.events]);
 };

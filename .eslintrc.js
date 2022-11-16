@@ -110,4 +110,7 @@ module.exports = {
       },
     },
   },
+  "react/function-component-definition": [
+    { "namedComponents": "arrow-function" }
+  ]  
 };

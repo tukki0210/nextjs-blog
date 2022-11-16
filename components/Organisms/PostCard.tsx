@@ -18,7 +18,7 @@ const PostCard: FC<Props> = ({ id, title, date, image }) => (
     <div className='mb-4 mx-2 bg-white overflow-hidden hover:opacity-80 '>
       <Link href={`/posts/${id}`}>
         <div className='items-center '>
-          <Image src={image} alt={title} width='400' height='300' />
+          <Image src={image} alt={title} width='400' height='260' />
           {/* タイトルカード */}
           <div className='items-center h-12 leading-tight px-2 text-gray-600 border-gray-200 border-0 border-solid border-t-2 -mt-3'>
             <p>{title}</p>

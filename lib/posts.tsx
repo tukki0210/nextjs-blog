@@ -57,14 +57,14 @@ const getPostDataByFileName = (fileName: string): PostData => {
 export const getPostDataById = (id: string): Promise<PostData> => Promise.resolve(getPostDataByFileName(`${id}.md`))
 
 // PostData[]の入ったPromiseオブジェクトを生成
-export const getAllPostsData = (): Promise<PostData[]> => {
+export const getAllPostsData = (offset:number,limit:number): Promise<PostData[]> => {
     // Get file names under /posts
     const allPostsData = fileNames.map(
         (fileName: string) => getPostDataByFileName(fileName)
     )
 
     // 日付順にソート
-    return Promise.resolve(allPostsData.sort((a: PostData, b: PostData) => a.date < b.date ? 1 : -1));
+    return Promise.resolve(allPostsData.sort((a: PostData, b: PostData) => a.date < b.date ? 1 : -1).slice(offset,limit));
 }
 
 export const getAllPostIds = (): Promise<{ params: { id: string } }[]> => (

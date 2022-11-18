@@ -1,13 +1,8 @@
 import React, { FC } from 'react';
 import Head from 'next/head';
 import ReactMarkdown from 'react-markdown';
-import {
-  GetStaticPaths,
-  InferGetStaticPropsType,
-  GetStaticPropsContext,
-  GetStaticProps,
-  NextPage,
-} from 'next';
+import { GetStaticPaths, GetStaticPropsContext, GetStaticProps, NextPage } from 'next';
+import Image from 'next/image';
 import markdownStyles from '../../styles/markdown-styles.module.css';
 import DateComponent from '../../components/Molecules/DateBox';
 import { getAllPostIds, getPostDataById } from '../../lib/posts';
@@ -15,9 +10,9 @@ import Layout from '../../components/pages/layout';
 import CodeBlock from '../../components/Molecules/CodeBlock';
 import rehypeRaw from 'rehype-raw';
 
-// const ImageInMarkDown = ({ src, alt }: { src: string; alt: string }) => (
-//   <Image src={src} alt={alt} width='600' height='450' />
-// );
+const ImageInMarkDown = ({ src, alt }: { src: string; alt: string }) => (
+  <Image src={src} alt={alt} width='600' height='450' />
+);
 
 // getStaticPropsはサーバサイドで実行される
 // 静的なファイルを事前にビルドする
@@ -95,7 +90,7 @@ const Post: NextPage<SSGProps> = ({ postData }) => (
         children={postData.content}
         components={{
           code: CodeBlock,
-          // image: ImageInMarkDown
+          img: ImageInMarkDown,
         }}
       />
     </article>

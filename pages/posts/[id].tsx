@@ -1,7 +1,13 @@
 import React, { FC } from 'react';
 import Head from 'next/head';
 import ReactMarkdown from 'react-markdown';
-import { GetStaticPaths, InferGetStaticPropsType, GetStaticPropsContext } from 'next';
+import {
+  GetStaticPaths,
+  InferGetStaticPropsType,
+  GetStaticPropsContext,
+  GetStaticProps,
+  NextPage,
+} from 'next';
 import markdownStyles from '../../styles/markdown-styles.module.css';
 import DateComponent from '../../components/Molecules/DateBox';
 import { getAllPostIds, getPostDataById } from '../../lib/posts';
@@ -16,11 +22,6 @@ import rehypeRaw from 'rehype-raw';
 // getStaticPropsはサーバサイドで実行される
 // 静的なファイルを事前にビルドする
 
-// ルーティング情報が入ったparamsを受け取る
-// InferGetStaticPropsType<typeof getStaticProps>で、
-// getStaticProps()の返り値をもとにPageに渡される型を類推してくれる。
-type Props = InferGetStaticPropsType<typeof getStaticProps>;
-
 type Date = `${number}-${number}-${number}`;
 
 type PostData = {
@@ -33,10 +34,14 @@ type PostData = {
   content: string;
 };
 
+type SSGProps = {
+  postData: PostData;
+};
+
 // GetStaticPropsContext でpostDataの型推論
-export const getStaticProps = async ({
+export const getStaticProps: GetStaticProps<SSGProps> = async ({
   params,
-}: GetStaticPropsContext): Promise<{ props: { postData: PostData } }> => {
+}: GetStaticPropsContext) => {
   // Fetch necessary data for the blog post using params.id
   // params.id はファイル名の[id].tsx に対応する
   const postData = await getPostDataById(params?.id as string);
@@ -61,7 +66,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
   };
 };
 
-const Post: FC<Props> = ({ postData }) => (
+const Post: NextPage<SSGProps> = ({ postData }) => (
   <Layout pagetitle={postData.title} metaDescription={postData.metaDescription}>
     <Head>
       <title>{postData.title}</title>

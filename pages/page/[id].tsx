@@ -1,9 +1,6 @@
-import { GetStaticPaths, GetStaticProps, InferGetStaticPropsType, NextPage } from 'next';
-import Layout from '../../components/pages/layout';
+import { GetStaticPaths, GetStaticProps, NextPage } from 'next';
 import { getAllPostsData } from '../../lib/posts';
-import PostCard from '../../components/Organisms/PostCard';
-import SideBar from '../../components/templates/SideBar';
-import Pagenation from '../../components/Organisms/Pagenation';
+import TopPage from '../../components/pages/TopPage';
 
 type Date = `${number}-${number}-${number}`;
 
@@ -22,7 +19,9 @@ type SSGProps = {
 };
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const paths = [1, 2, 3, 4].map((index) => ({ params: { id: String(index) } }));
+  const paths = [...Array(4)]
+    .map((_, i) => i + 1)
+    .map((index) => ({ params: { id: String(index) } }));
 
   return {
     paths,
@@ -50,19 +49,7 @@ export const getStaticProps: GetStaticProps<SSGProps> = async (context) => {
 
 // allPostsDataはビルド時にgetStaticProps()によって生成される。
 const pageNumber: NextPage<SSGProps> = ({ allPostsData, pageNumber }) => (
-  <Layout pagetitle='' metaDescription='トップページ'>
-    <div className='xl:container mx-2 my-4 md:my-10  xl:flex xl:justify-between'>
-      <main className='flex flex-wrap xl:w-10/12 mx-4'>
-        {allPostsData.map(({ id, title, date, image }) => (
-          <PostCard key={id} id={id} title={title} date={date} image={image} />
-        ))}
-      </main>
-      <aside className='w-full md:w-1/2 xl:w-2/12 mx-2 xl:mx-auto'>
-        <SideBar />
-      </aside>
-    </div>
-    <Pagenation currentPageNumber={pageNumber} maxPageNumber={3} />
-  </Layout>
+  <TopPage allPostsData={allPostsData} pageNumber={pageNumber} />
 );
 
 export default pageNumber;

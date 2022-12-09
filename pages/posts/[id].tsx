@@ -90,7 +90,7 @@ const Post: NextPage<SSGProps> = ({ postData }) => (
         children={postData.content}
         components={{
           code: CodeBlock,
-          img: ImageInMarkDown,
+          img: ImageInMarkDown as any,
         }}
       />
     </article>

@@ -33,7 +33,7 @@ const Layout: FC<Props> = ({ pagetitle, metaDescription, children }) => (
         </Head>
         <header className="text-center">
             <Link href="/">
-                <h1 className="text-white text-3xl mt-0 py-4">{siteTitle}</h1>
+                <h1 className="text-white text-3xl mt-0 py-8">{siteTitle}</h1>
             </Link>
         </header>
         {/* xl(1280px)以上の画面サイズでflexboxに変更 */}

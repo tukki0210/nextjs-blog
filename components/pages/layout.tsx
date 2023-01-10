@@ -3,7 +3,6 @@ import Head from 'next/head'
 import Link from 'next/link'
 
 export const siteTitle = "理系公務員のプログラミング日記"
-export const subTitle = "職業訓練校でプログラミングの指導員をしてます。自分の勉強内容メモと授業で出した課題の解説が中心です。このブログはTypeScript + Next.js + TailWind CSS + Vercelで構成してます。（一部未完成）"
 
 type Props = {
     pagetitle?: string;
@@ -38,7 +37,7 @@ const Layout: FC<Props> = ({ pagetitle, metaDescription, children }) => (
             </Link>
         </header>
         {/* xl(1280px)以上の画面サイズでflexboxに変更 */}
-        <div className="md:mx-auto xl:w-10/12">
+        <div className="mx-auto">
             {children}
         </div>
     </>

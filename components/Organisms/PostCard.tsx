@@ -13,24 +13,24 @@ type Props = {
 };
 
 const PostCard: FC<Props> = ({ id, title, date, image }) => (
-  <div className='mx-auto w-full md:w-1/2 lg:w-1/3' >
+  <li className='w-96 m-2' >
     {/* 各記事カードのスタイル */}
-    <div className='mb-4 mx-2 bg-white overflow-hidden hover:opacity-80 '>
+    <div className=' bg-white overflow-hidden hover:opacity-80 '>
       <Link href={`/posts/${id}`}>
-        <div className='items-center '>
-          <Image src={image} alt={title} width='400' height='240' />
+        <div className='items-center'>
+          <Image src={image} alt={title} width='384' height='230' />
           {/* タイトルカード */}
-          <div className='items-center h-12 leading-tight px-2 text-gray-600 border-gray-200 border-0 border-solid border-t-2 -mt-3'>
+          <div className='items-center h-12 text-xl leading-tight px-4 text-gray-600  -mt-3'>
             <p>{title}</p>
           </div>
-          <div className='flex flex-row-reverse px-4 pb-1'>
+          <div className='flex flex-row-reverse text-lg px-4 pb-1'>
             <DateBox dateString={date} />
           </div>
           {/* タイトルカード終わり */}
         </div>
       </Link>
     </div>
-  </div>
+  </li>
 );
 
 export default PostCard;

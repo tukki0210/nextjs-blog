@@ -21,18 +21,21 @@ type SSGProps = {
 };
 
 const TopPage: NextPage<SSGProps> = ({ allPostsData, pageNumber }) => (
-  <Layout pagetitle='' metaDescription='トップページ'>
-    <div className='xl:container mx-2 my-4 md:my-10  xl:flex xl:justify-between'>
-      <main className='flex flex-wrap xl:w-10/12 mx-4'>
-        {allPostsData.map(({ id, title, date, image }) => (
-          <PostCard key={id} id={id} title={title} date={date} image={image} />
-        ))}
+  <Layout pagetitle='理系公務員のプログラミング日記' metaDescription='トップページ'>
+    <div className='container flex flex-col 2xl:flex-row justify-center mx-auto'>
+      <main className=''>
+        <ul className='flex flex-row flex-wrap justify-center 2xl:justify-end'>
+          {allPostsData.map(({ id, title, date, image }) => (
+            <PostCard key={id} id={id} title={title} date={date} image={image} />
+          ))}
+        </ul>
+        <Pagenation currentPageNumber={pageNumber} maxPageNumber={3} />
       </main>
-      <aside className='w-full md:w-1/2 xl:w-2/12 mx-2 xl:mx-auto'>
+      <aside className='mx-16 2xl:mt-6 2xl:mx-2'>
         <SideBar />
       </aside>
     </div>
-    <Pagenation currentPageNumber={pageNumber} maxPageNumber={3} />
+    
   </Layout>
 );
 

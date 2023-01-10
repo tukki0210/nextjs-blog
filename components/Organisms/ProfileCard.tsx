@@ -6,7 +6,7 @@ const name = 'つっきー';
 const subTitleA =
   '職業訓練校でプログラミング教えている公務員です。自分の勉強内容の振り返りと授業で出した課題の解説記事が中心です。';
 const subTitleB =
-  'このブログはTypeScript + Next.js + TailWind CSS + Vercelで構成してます。（まだまだ回収中）';
+  'このブログはTypeScript + Next.js + TailWind CSS + Vercelで構成してます。（まだまだ改修中）';
 
 const ProfileCard: FC = () => {
   return (
@@ -27,7 +27,7 @@ const ProfileCard: FC = () => {
               alt='githubLink'
               width='30'
               height='30'
-              className='ml-2 mt-4'
+              className='ml-2 mt-4 hover:opacity-80'
             />
           </Link>
         </div>

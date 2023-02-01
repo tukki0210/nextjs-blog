@@ -29,7 +29,7 @@ const TopPage: NextPage<SSGProps> = ({ allPostsData, pageNumber }) => (
             <PostCard key={id} id={id} title={title} date={date} image={image} />
           ))}
         </ul>
-        <Pagenation currentPageNumber={pageNumber} maxPageNumber={3} />
+        <Pagenation currentPageNumber={pageNumber} maxPageNumber={4} />
       </main>
       <aside className='mx-16 2xl:mt-6 2xl:mx-2'>
         <SideBar />

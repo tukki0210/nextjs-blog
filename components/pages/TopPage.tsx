@@ -35,7 +35,7 @@ const TopPage: NextPage<SSGProps> = ({ allPostsData, pageNumber }) => (
         <SideBar />
       </aside>
     </div>
-    
+
   </Layout>
 );
 

@@ -11,7 +11,7 @@ type Props = {
 }
 
 const Layout: FC<Props> = ({ pagetitle, metaDescription, children }) => (
-    <> 
+    <>
         <Head>
             <meta charSet="utf-8" />
             <meta name="viewport" content="initial-scale=1.0, width=device-width" />
@@ -31,7 +31,7 @@ const Layout: FC<Props> = ({ pagetitle, metaDescription, children }) => (
             {/* <link rel="canonical" href={url} /> */}
 
         </Head>
-        <header className="text-center">
+        <header className="text-center bg-sky-600 h-30 w-full">
             <Link href="/">
                 <h1 className="text-white text-3xl mt-0 py-8">{siteTitle}</h1>
             </Link>

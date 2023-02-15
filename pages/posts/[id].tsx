@@ -66,7 +66,7 @@ const Post: NextPage<SSGProps> = ({ postData }) => (
     <Head>
       <title>{postData.title}</title>
     </Head>
-    <article className='bg-white 2xl:w-7/12 lg:w-9/12 mx-auto m-10 p-4 md:p-10'>
+    <article className='bg-white  2xl:w-7/12 lg:w-9/12 md:w-11/12 mx-auto -my-4 md:my-10 px-2 md:px-10 py-1 md:py-10'>
       <div className='mb-10 px-4 text-xl leading-normal border-solid border-0 border-l-8 border-blue-600'>
         <h2 className='mb-14'>{postData.title}</h2>
         <div className='flex flex-row-reverse px-2  '>

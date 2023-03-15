@@ -1,91 +1,93 @@
 .markdown {
-    @apply text-xl leading-7 text-gray-800;
-  }
-  
-  .markdown p,
-  .markdown ul,
-  .markdown ol,
-  .markdown blockquote {
-    @apply my-6;
-  }
+  @apply text-xl leading-7 text-gray-800;
+}
 
-  .markdown h2 {
-    position: relative;
-    padding: 1rem .5rem;
-  }
-  
-  .markdown h2:after {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 6px;
-    content: '';
-    border-radius: 3px;
-    background-image: linear-gradient(to right, #0050fd 30%, #60fdf2 100%);
-  }
-  
-  .markdown h3 {
-    position: relative;
-    padding: .5rem .5rem;
-  }
-  
-  .markdown h3:after {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 4px;
-    content: '';
-    border-radius: 2px;
-    background-image: linear-gradient(to right, #0050fd 30%, #60fdf2 100%);
-  }
+.markdown p,
+.markdown ul,
+.markdown ol,
+.markdown blockquote {
+  @apply my-6;
+}
 
-  .markdown h4 {
-    position: relative;
-    padding: .3rem .5rem;
-  }
-  
-  .markdown h4:after {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 4px;
-    content: '';
-    border-radius: 2px;
-    background-image: linear-gradient(to right, #0050fd 30%, #60fdf2 100%);
-  }
+.markdown h2 {
+  position: relative;
+  padding: 1rem 0.5rem;
+}
 
-  .markdown red {
-    background: linear-gradient(transparent 80%, #fda3bb 60%);
-  }
+.markdown h2:after {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 6px;
+  content: '';
+  border-radius: 3px;
+  background-image: linear-gradient(to right, #0050fd 30%, #60fdf2 100%);
+}
 
-  .markdown yellow {
-    background: linear-gradient(transparent 80%, #f7f746 60%);
-  }
+.markdown h3 {
+  position: relative;
+  padding: 0.5rem 0.5rem;
+}
 
-  .markdown blue {
-    background: linear-gradient(transparent 80%, #66ccff 60%);
-  }
-  
-  .markdown a {
-    @apply text-green-600
-  }
+.markdown h3:after {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  content: '';
+  border-radius: 2px;
+  background-image: linear-gradient(to right, #0050fd 30%, #60fdf2 100%);
+}
 
-  .markdown bold {
-    @apply text-xl font-bold
-  }
+.markdown h4 {
+  position: relative;
+  padding: 0.3rem 0.5rem;
+}
 
-  .markdown ul {
-    margin-left: 0;
-    padding-left: 0;
-  }
-  .markdown ul li {
-    padding-left: 0;
-  }
+.markdown h4:after {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  content: '';
+  border-radius: 2px;
+  background-image: linear-gradient(to right, #0050fd 30%, #60fdf2 100%);
+}
 
-  .markdown code {
-    background-color: rgba(255, 176, 176, 0.698);
-    padding: 1px 4px;
-  }
+.markdown red {
+  background: linear-gradient(transparent 80%, #fda3bb 60%);
+}
+
+.markdown yellow {
+  background: linear-gradient(transparent 80%, #f7f746 60%);
+}
+
+.markdown blue {
+  background: linear-gradient(transparent 80%, #66ccff 60%);
+}
+
+.markdown a {
+  background-color: #D5EAD8;
+	text-shadow: 1px 1px 0 #fff, 0 1px 0 #fff;
+}
+
+.markdown bold {
+  @apply text-xl font-bold;
+}
+
+.markdown ul {
+  margin-left: 0;
+  padding-left: 0;
+}
+.markdown ul li {
+  padding-left: 0;
+}
+
+.markdown code {
+  background:linear-gradient(transparent 80%, #ffcc66 0%);
+}
+
+

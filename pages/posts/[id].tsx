@@ -1,14 +1,16 @@
-import React, { FC } from 'react';
-import Head from 'next/head';
-import ReactMarkdown from 'react-markdown';
+import React from 'react';
 import { GetStaticPaths, GetStaticPropsContext, GetStaticProps, NextPage } from 'next';
 import Image from 'next/image';
+import Head from 'next/head';
+import ReactMarkdown from 'react-markdown';
+import rehypeRaw from 'rehype-raw';
+
 import markdownStyles from '../../styles/markdown-styles.module.css';
 import DateComponent from '../../components/Molecules/DateBox';
 import { getAllPostIds, getPostDataById } from '../../lib/posts';
 import Layout from '../../components/pages/layout';
 import CodeBlock from '../../components/Molecules/CodeBlock';
-import rehypeRaw from 'rehype-raw';
+
 
 const ImageInMarkDown = ({ src, alt }: { src: string; alt: string }) => (
   <Image src={src} alt={alt} width='600' height='450' />
@@ -37,17 +39,16 @@ type SSGProps = {
 export const getStaticProps: GetStaticProps<SSGProps> = async ({
   params,
 }: GetStaticPropsContext) => {
-  // Fetch necessary data for the blog post using params.id
-  // params.id はファイル名の[id].tsx に対応する
-  const postData = await getPostDataById(params?.id as string);
 
-  return {
-    props: {
-      // ページコンポーネントにpropsとして渡される
-      postData,
-    },
+  try {
+    const postData = await getPostDataById(params?.id as string);
+
+    return { props: { postData } }
+  } catch (error) {
+    console.log(error);
+    return { notFound: true };
   };
-};
+}
 
 // サーバー側でビルド時のみ実行
 // getStaticPathsはgetStaticPropsと一緒に使う必要がある
@@ -99,18 +100,3 @@ const Post: NextPage<SSGProps> = ({ postData }) => (
 
 export default Post;
 
-// //getStaticPropsで外部APIを叩くことができる
-// const getStaticProps = (context) => {
-//   const res = await fetch(`https://.../data`)
-//   const data = await res.json()
-
-//   if (!data) {
-//     return {
-//       notFound: true,
-//     }
-//   }
-
-//   return {
-//     props: {}, // will be passed to the page component as props
-//   }
-// }

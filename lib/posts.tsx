@@ -31,17 +31,15 @@ const getMatterFileContents = (id: string): GrayMatterFile<Input> => {
 const getPostDataByFileName = (fileName: string): PostData => {
     const id = fileName.replace(/\.md$/, '')
     const matterResult = getMatterFileContents(id)
-    type dataType = {
-        title: string,
-        date: Date,
-        image: string,
-        metaDescription: string,
-        tags: Array<string>,
-    }
-    
-    const { data } = matterResult;
-    const { title, date, image, metaDescription, tags } = data as dataType;
-    const { content } = matterResult;
+
+    const { data, content } = matterResult;
+    const { title, date, image, metaDescription, tags } = data as {
+        title: string;
+        date: Date;
+        image: string;
+        metaDescription: string;
+        tags: Array<string>;
+    };
 
     return {
         id,
@@ -50,21 +48,29 @@ const getPostDataByFileName = (fileName: string): PostData => {
         image,
         metaDescription,
         tags,
-        content
+        content,
     };
 };
 
 export const getPostDataById = (id: string): Promise<PostData> => Promise.resolve(getPostDataByFileName(`${id}.md`))
 
 // PostData[]の入ったPromiseオブジェクトを生成
-export const getAllPostsData = (offset:number,limit:number): Promise<PostData[]> => {
+export const getAllPostsData = (): Promise<PostData[]> => {
     // Get file names under /posts
     const allPostsData = fileNames.map(
         (fileName: string) => getPostDataByFileName(fileName)
     )
 
     // 日付順にソート
-    return Promise.resolve(allPostsData.sort((a: PostData, b: PostData) => a.date < b.date ? 1 : -1).slice(offset,limit));
+    return Promise.resolve(
+        allPostsData
+            .sort((a: PostData, b: PostData) => a.date < b.date ? 1 : -1))
+}
+
+export const getSlicedPostsData = (offset: number, limit: number): Promise<PostData[]> => {
+    return getAllPostsData().then((allPostsData: PostData[]) => {
+        return allPostsData.slice(offset, offset + limit)
+    })
 }
 
 export const getAllPostIds = (): Promise<{ params: { id: string } }[]> => (

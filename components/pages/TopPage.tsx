@@ -2,7 +2,7 @@ import { NextPage } from 'next';
 import Layout from './layout';
 import PostCard from '../Organisms/PostCard';
 import SideBar from '../templates/SideBar';
-import Pagenation from '../Organisms/Pagenation';
+import Pagination from '../Organisms/Pagination';
 
 type Date = `${number}-${number}-${number}`;
 
@@ -29,7 +29,7 @@ const TopPage: NextPage<SSGProps> = ({ allPostsData, pageNumber }) => (
             <PostCard key={id} id={id} title={title} date={date} image={image} />
           ))}
         </ul>
-        <Pagenation currentPageNumber={pageNumber} maxPageNumber={4} />
+        <Pagination currentPageNumber={pageNumber} maxPageNumber={5} />
       </main>
       <aside className='mx-16 2xl:mt-6 2xl:mx-2'>
         <SideBar />

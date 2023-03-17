@@ -6,7 +6,8 @@ type Props = {
   currentPageNumber: number;
 };
 
-const Pagenation: FC<Props> = ({ currentPageNumber, maxPageNumber }) => {
+
+const Pagination: FC<Props> = ({ currentPageNumber, maxPageNumber }) => {
   const prevPage = currentPageNumber - 1;
   const nextPage = currentPageNumber + 1;
 
@@ -26,4 +27,4 @@ const Pagenation: FC<Props> = ({ currentPageNumber, maxPageNumber }) => {
   );
 };
 
-export default Pagenation;
+export default Pagination;

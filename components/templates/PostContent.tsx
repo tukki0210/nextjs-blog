@@ -1,6 +1,6 @@
 import React, { FC } from "react";
 import Image from 'next/image';
-import Markdown from "react-markdown";
+import ReactMarkdown from "react-markdown";
 import rehypeRaw from "rehype-raw";
 
 import markdownStyles from '../../styles/markdown-styles.module.css';
@@ -23,7 +23,6 @@ type PostData = {
 type PostContentProps = {
     postData: PostData;
 }
-
 
 const ImageInMarkDown = ({ src, alt }: { src: string; alt: string }) => (
     <Image src={src} alt={alt} width='600' height='450' />
@@ -48,15 +47,14 @@ const PostContent: FC<PostContentProps> = ({ postData }) => (
                 ))}
             </div>
         </div>
-        <Markdown
+        <ReactMarkdown
             children={postData.content}
             rehypePlugins={[rehypeRaw]}
             className={markdownStyles.markdown}
 
             components={{
-                code: (props) => {
-                    const { children, className, node, ...rest } = props
-                    return <CodeBlock {...rest} className={markdownStyles.markdown} children={postData.content} />
+                code(props){
+                return <CodeBlock {...props} />;
                 },
                 img: ImageInMarkDown as any,
             }}

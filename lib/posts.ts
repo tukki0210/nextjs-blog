@@ -1,3 +1,4 @@
+type PostDate = `${number}-${number}-${number}`
 import fs from 'fs'
 import path from 'path'
 import matter, { GrayMatterFile, Input } from 'gray-matter'

@@ -31,7 +31,7 @@ module.exports = {
     'react',
     'react-hooks',
   ],
-  root:true,
+  root: true,
   rules: {
     // occur error in `import React from 'react'` with react-scripts 4.0.1
     'no-use-before-define': 'off',
@@ -94,11 +94,14 @@ module.exports = {
       },
     ],
     'react/react-in-jsx-scope': 'off',
+    'react/function-component-definition': [
+      { 'namedComponents': 'arrow-function' }
+    ]
   },
   overrides: [
     {
-      'files': ['*.tsx'],
-      'rules': {
+      files: ['*.tsx'],
+      rules: {
         'react/prop-types': 'off',
       },
     },
@@ -106,11 +109,9 @@ module.exports = {
   settings: {
     'import/resolver': {
       node: {
-        paths: ['src'],
+        paths: ['lib'],
+        extensions: ['.js', '.jsx', '.ts', '.tsx'],
       },
     },
   },
-  "react/function-component-definition": [
-    { "namedComponents": "arrow-function" }
-  ]  
 };

@@ -98,3 +98,32 @@ export const getPostsCount = async (): Promise<number> => {
   const fileNames = getMarkdownFiles();
   return fileNames.length;
 };
+
+/**
+ * 前後の記事を取得する
+ * @param currentId 現在の記事ID
+ */
+export const getAdjacentPosts = async (currentId: string): Promise<{ 
+  prev: { id: string; title: string } | null; 
+  next: { id: string; title: string } | null; 
+}> => {
+  const allPosts = await getAllPostsData();
+  const currentIndex = allPosts.findIndex(post => post.id === currentId);
+  
+  // 記事が見つからない場合
+  if (currentIndex === -1) {
+    return { prev: null, next: null };
+  }
+  
+  // 前の記事（新しい記事）
+  const prev = currentIndex > 0 
+    ? { id: allPosts[currentIndex - 1].id, title: allPosts[currentIndex - 1].title }
+    : null;
+  
+  // 次の記事（古い記事）
+  const next = currentIndex < allPosts.length - 1
+    ? { id: allPosts[currentIndex + 1].id, title: allPosts[currentIndex + 1].title }
+    : null;
+  
+  return { prev, next };
+};

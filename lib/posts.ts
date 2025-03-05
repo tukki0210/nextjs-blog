@@ -1,85 +1,100 @@
-type PostDate = `${number}-${number}-${number}`
-import fs from 'fs'
-import path from 'path'
-import matter, { GrayMatterFile, Input } from 'gray-matter'
+import fs from 'fs';
+import path from 'path';
+import matter, { GrayMatterFile, Input } from 'gray-matter';
+import { PostData, PostDate } from '../types/blog';
 
-const postsDirectory = path.join(process.cwd(), 'posts')
+const postsDirectory = path.join(process.cwd(), 'posts');
 
-type Date = `${number}-${number}-${number}`
-
-type PostData = {
-    id: string,
-    title: string,
-    date: Date,
-    image: string,
-    metaDescription: string,
-    tags: Array<string>,
-    content: string
+/**
+ * .mdファイルのみを取得する
+ */
+export const getMarkdownFiles = (): string[] => {
+  return fs.readdirSync(postsDirectory).filter(fileName => fileName.endsWith('.md'));
 };
 
-// .mdファイル以外を除外する
-const fileNames = fs.readdirSync(postsDirectory).filter(fileName => fileName.includes('md'))
-
+/**
+ * マークダウンファイルの内容を解析する
+ * @param id ファイルID（拡張子なし）
+ */
 const getMatterFileContents = (id: string): GrayMatterFile<Input> => {
-    // マークダウンファイルのフルパス
-    const fullPath = path.join(postsDirectory, `${id}.md`)
-    const fileContents = fs.readFileSync(fullPath, 'utf8')
-
-    // use gray-matter to parse the post metadata section
-    return matter(fileContents)
-}
-
-const getPostDataByFileName = (fileName: string): PostData => {
-    const id = fileName.replace(/\.md$/, '')
-    const matterResult = getMatterFileContents(id)
-
-    const { data, content } = matterResult;
-    const { title, date, image, metaDescription, tags } = data as {
-        title: string;
-        date: Date;
-        image: string;
-        metaDescription: string;
-        tags: Array<string>;
-    };
-
-    return {
-        id,
-        title,
-        date,
-        image,
-        metaDescription,
-        tags,
-        content,
-    };
+  const fullPath = path.join(postsDirectory, `${id}.md`);
+  const fileContents = fs.readFileSync(fullPath, 'utf8');
+  return matter(fileContents);
 };
 
-export const getPostDataById = (id: string): Promise<PostData> => Promise.resolve(getPostDataByFileName(`${id}.md`))
+/**
+ * ファイル名から投稿データを取得する
+ * @param fileName ファイル名
+ */
+const getPostDataByFileName = (fileName: string): PostData => {
+  const id = fileName.replace(/\.md$/, '');
+  const matterResult = getMatterFileContents(id);
 
-// PostData[]の入ったPromiseオブジェクトを生成
-export const getAllPostsData = (): Promise<PostData[]> => {
-    // Get file names under /posts
-    const allPostsData = fileNames.map(
-        (fileName: string) => getPostDataByFileName(fileName)
-    )
+  const { data, content } = matterResult;
+  const { title, date, image, metaDescription, tags } = data as {
+    title: string;
+    date: PostDate;
+    image: string;
+    metaDescription: string;
+    tags: string[];
+  };
 
-    // 日付順にソート
-    return Promise.resolve(
-        allPostsData
-            .sort((a: PostData, b: PostData) => a.date < b.date ? 1 : -1))
-}
+  return {
+    id,
+    title,
+    date,
+    image,
+    metaDescription,
+    tags,
+    content,
+  };
+};
 
-export const getSlicedPostsData = (offset: number, limit: number): Promise<PostData[]> => {
-    return getAllPostsData().then((allPostsData: PostData[]) => {
-        return allPostsData.slice(offset, offset + limit)
-    })
-}
+/**
+ * IDから投稿データを取得する
+ * @param id 投稿ID
+ */
+export const getPostDataById = async (id: string): Promise<PostData> => {
+  return getPostDataByFileName(`${id}.md`);
+};
 
-export const getAllPostIds = (): Promise<{ params: { id: string } }[]> => (
-    // const fileNames = fs.readdirSync(postsDirectory)
-    Promise.resolve(fileNames.map(fileName => ({
-        params: {
-            id: fileName.replace(/\.md$/, '')
-        }
-    }))
-    )
-)
+/**
+ * すべての投稿データを取得する
+ */
+export const getAllPostsData = async (): Promise<PostData[]> => {
+  const fileNames = getMarkdownFiles();
+  const allPostsData = fileNames.map(fileName => getPostDataByFileName(fileName));
+  
+  // 日付順にソート（新しい順）
+  return allPostsData.sort((a, b) => (a.date < b.date ? 1 : -1));
+};
+
+/**
+ * 指定範囲の投稿データを取得する
+ * @param offset 開始位置
+ * @param limit 取得件数
+ */
+export const getSlicedPostsData = async (offset: number, limit: number): Promise<PostData[]> => {
+  const allPostsData = await getAllPostsData();
+  return allPostsData.slice(offset, offset + limit);
+};
+
+/**
+ * すべての投稿IDを取得する
+ */
+export const getAllPostIds = async (): Promise<{ params: { id: string } }[]> => {
+  const fileNames = getMarkdownFiles();
+  return fileNames.map(fileName => ({
+    params: {
+      id: fileName.replace(/\.md$/, '')
+    }
+  }));
+};
+
+/**
+ * 投稿の総数を取得する
+ */
+export const getPostsCount = async (): Promise<number> => {
+  const fileNames = getMarkdownFiles();
+  return fileNames.length;
+};

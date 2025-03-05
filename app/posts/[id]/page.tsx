@@ -1,16 +1,13 @@
 import { getPostDataById, getAllPostIds } from '../../../lib/posts';
 import Post from '../../../components/templates/PostContent';
-
-type Params = {
-    params: { id: string };
-};
+import { PostParams } from '../../../types/blog';
 
 export async function generateStaticParams() {
     const posts = await getAllPostIds();
     return posts;
 }
 
-export default async function Page({ params }: Params) {
+export default async function Page({ params }: PostParams) {
     const postData = await getPostDataById(params.id);
     return <Post postData={postData} />;
 }

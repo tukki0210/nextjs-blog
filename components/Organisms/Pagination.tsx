@@ -1,13 +1,8 @@
 import Link from 'next/link';
 import React, { FC } from 'react';
+import { PaginationProps } from '../../types/blog';
 
-type Props = {
-  maxPageNumber: number;
-  currentPageNumber: number;
-};
-
-
-const Pagination: FC<Props> = ({ currentPageNumber, maxPageNumber }) => {
+const Pagination: FC<PaginationProps> = ({ currentPageNumber, maxPageNumber }) => {
   const prevPage = currentPageNumber - 1;
   const nextPage = currentPageNumber + 1;
 

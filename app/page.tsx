@@ -1,22 +1,16 @@
-import { getSlicedPostsData } from '../lib/posts';
+import { getPostsCount, getSlicedPostsData } from '../lib/posts';
 import TopPage from '../components/pages/TopPage';
-
-type Date = `${number}-${number}-${number}`;
-
-type PostData = {
-  id: string;
-  title: string;
-  date: Date;
-  image: string;
-  metaDescription: string;
-  tags: Array<string>;
-  content?: string;
-};
+import { PostListItem } from '../types/blog';
 
 export default async function Page() {
   const offset = 0;
   const limit = 24;
-  const TopPageData: PostData[] = await getSlicedPostsData(offset, limit);
+  const postsData = await getSlicedPostsData(offset, limit);
+  const totalPosts = await getPostsCount();
+  const maxPageNumber = Math.ceil(totalPosts / limit);
 
-  return <TopPage allPostsData={TopPageData} pageNumber={1} />;
+  // 型を明示的に変換（contentが必須ではないPostListItemとして扱う）
+  const topPageData: PostListItem[] = postsData;
+
+  return <TopPage allPostsData={topPageData} pageNumber={1} maxPageNumber={maxPageNumber} />;
 }

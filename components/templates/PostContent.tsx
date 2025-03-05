@@ -6,19 +6,7 @@ import rehypeRaw from "rehype-raw";
 import markdownStyles from '../../styles/markdown-styles.module.css';
 import DateComponent from '../../components/Molecules/DateBox';
 import CodeBlock from "../../components/Molecules/CodeBlock";
-
-
-type Date = `${number}-${number}-${number}`;
-
-type PostData = {
-    id: string;
-    title: string;
-    date: Date;
-    image: string;
-    metaDescription: string;
-    tags: Array<string>;
-    content: string;
-};
+import { PostData } from "../../types/blog";
 
 type PostContentProps = {
     postData: PostData;

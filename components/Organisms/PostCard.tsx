@@ -2,17 +2,16 @@ import Image from 'next/image';
 import Link from 'next/link';
 import React, { FC } from 'react';
 import DateBox from '../Molecules/DateBox';
+import { PostDate } from '../../types/blog';
 
-type Date = `${number}-${number}-${number}`;
-
-type Props = {
+type PostCardProps = {
   id: string;
   title: string;
-  date: Date;
+  date: PostDate;
   image: string;
 };
 
-const PostCard: FC<Props> = ({ id, title, date, image }) => (
+const PostCard: FC<PostCardProps> = ({ id, title, date, image }) => (
   <li className='w-96 m-2' >
     {/* 各記事カードのスタイル */}
     <div className=' bg-white overflow-hidden hover:opacity-80 '>

@@ -1,26 +1,26 @@
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
+import { ComponentPropsWithoutRef } from 'react';
 
-
-// Propsの型定義
-type CodeBlockProps = {
+type CodeBlockProps = ComponentPropsWithoutRef<'code'> & {
   children?: React.ReactNode;
   className?: string;
-  [key: string]: any; // その他のプロパティを受け取るため
-}
+};
 
-const CodeBlock = ({ children, className, rest }: CodeBlockProps) => {
+const CodeBlock = ({ children, className, ...rest }: CodeBlockProps) => {
   const match = /language-(\w+)/.exec(className || '');
   const lang = match && match[1] ? match[1] : '';
 
   return match ? (
     <SyntaxHighlighter
-      {...rest}
       PreTag="div"
       language={lang}
-      children={String(children).replace(/\n$/, '')}
-    />
+    >
+      {String(children).replace(/\n$/, '')}
+    </SyntaxHighlighter>
   ) : (
-    <code {...rest} className={className}>{children}</code>
+    <code {...rest} className={className}>
+      {children}
+    </code>
   );
 };
 

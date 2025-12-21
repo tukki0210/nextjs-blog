@@ -8,8 +8,9 @@ export async function generateStaticParams() {
 }
 
 export default async function Page({ params }: PostParams) {
-    const postData = await getPostDataById(params.id);
-    const adjacentPosts = await getAdjacentPosts(params.id);
+    const { id } = await params;
+    const postData = await getPostDataById(id);
+    const adjacentPosts = await getAdjacentPosts(id);
     
     return (
         <Post 

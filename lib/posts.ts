@@ -1,9 +1,19 @@
 import fs from 'fs';
 import path from 'path';
 import matter, { GrayMatterFile, Input } from 'gray-matter';
-import { PostData, PostDate } from '../types/blog';
+import { PostData, PostDate, PostListItem } from '../types/blog';
 
 const postsDirectory = path.join(process.cwd(), 'posts');
+
+// キャッシュ
+let cachedPosts: PostData[] | null = null;
+
+/**
+ * キャッシュをクリアする（開発時のホットリロード用）
+ */
+export const clearPostsCache = (): void => {
+  cachedPosts = null;
+};
 
 /**
  * .mdファイルのみを取得する
@@ -59,35 +69,38 @@ export const getPostDataById = async (id: string): Promise<PostData> => {
 };
 
 /**
- * すべての投稿データを取得する
+ * すべての投稿データを取得する（キャッシュ付き）
  */
 export const getAllPostsData = async (): Promise<PostData[]> => {
+  if (cachedPosts) {
+    return cachedPosts;
+  }
+
   const fileNames = getMarkdownFiles();
   const allPostsData = fileNames.map(fileName => getPostDataByFileName(fileName));
-  
+
   // 日付順にソート（新しい順）
-  return allPostsData.sort((a, b) => (a.date < b.date ? 1 : -1));
+  cachedPosts = allPostsData.sort((a, b) => (a.date < b.date ? 1 : -1));
+  return cachedPosts;
 };
 
 /**
- * 指定範囲の投稿データを取得する
+ * 指定範囲の投稿データを取得する（リスト用、contentなし）
  * @param offset 開始位置
  * @param limit 取得件数
  */
-export const getSlicedPostsData = async (offset: number, limit: number): Promise<PostData[]> => {
+export const getSlicedPostsData = async (offset: number, limit: number): Promise<PostListItem[]> => {
   const allPostsData = await getAllPostsData();
-  return allPostsData.slice(offset, offset + limit);
+  return allPostsData.slice(offset, offset + limit).map(({ content: _, ...rest }) => rest);
 };
 
 /**
  * すべての投稿IDを取得する
  */
-export const getAllPostIds = async (): Promise<{ params: { id: string } }[]> => {
+export const getAllPostIds = async (): Promise<{ id: string }[]> => {
   const fileNames = getMarkdownFiles();
   return fileNames.map(fileName => ({
-    params: {
-      id: fileName.replace(/\.md$/, '')
-    }
+    id: fileName.replace(/\.md$/, '')
   }));
 };
 
@@ -100,30 +113,45 @@ export const getPostsCount = async (): Promise<number> => {
 };
 
 /**
+ * ページネーション情報を取得する
+ * @param limit 1ページあたりの件数
+ */
+export const getPaginationInfo = async (limit: number): Promise<{
+  totalPosts: number;
+  maxPageNumber: number;
+}> => {
+  const totalPosts = await getPostsCount();
+  return {
+    totalPosts,
+    maxPageNumber: Math.ceil(totalPosts / limit),
+  };
+};
+
+/**
  * 前後の記事を取得する
  * @param currentId 現在の記事ID
  */
-export const getAdjacentPosts = async (currentId: string): Promise<{ 
-  prev: { id: string; title: string } | null; 
-  next: { id: string; title: string } | null; 
+export const getAdjacentPosts = async (currentId: string): Promise<{
+  prev: { id: string; title: string } | null;
+  next: { id: string; title: string } | null;
 }> => {
   const allPosts = await getAllPostsData();
   const currentIndex = allPosts.findIndex(post => post.id === currentId);
-  
+
   // 記事が見つからない場合
   if (currentIndex === -1) {
     return { prev: null, next: null };
   }
-  
+
   // 前の記事（新しい記事）
-  const prev = currentIndex > 0 
+  const prev = currentIndex > 0
     ? { id: allPosts[currentIndex - 1].id, title: allPosts[currentIndex - 1].title }
     : null;
-  
+
   // 次の記事（古い記事）
   const next = currentIndex < allPosts.length - 1
     ? { id: allPosts[currentIndex + 1].id, title: allPosts[currentIndex + 1].title }
     : null;
-  
+
   return { prev, next };
 };

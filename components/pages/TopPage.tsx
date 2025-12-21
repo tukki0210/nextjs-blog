@@ -12,7 +12,7 @@ type TopPageProps = {
 
 export default function TopPage({ allPostsData, pageNumber, maxPageNumber }: TopPageProps) {
   return (
-    <Layout pagetitle="理系公務員のプログラミング日記" metaDescription="トップページ">
+    <Layout>
       <div className="container flex flex-col 2xl:flex-row justify-center mx-auto">
         <main>
           <ul className="flex flex-row flex-wrap justify-center 2xl:justify-end">
